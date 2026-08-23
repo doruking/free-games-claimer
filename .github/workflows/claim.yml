@@ -13,14 +13,36 @@ jobs:
     steps:
       - name: Anahtarlari Uret
         run: |
-          RESPONSE=$(curl -s -d "grant_type=authorization_code&code=${{ github.event.inputs.auth_code }}" -u "34a02cf8f4414e29b15920beb32236f4:abc" https://account-public-service-prod07.ol.epicgames.com/account/api/oauth/token)
-          TOKEN=$(echo $RESPONSE | jq -r .access_token)
-          ACCOUNT_ID=$(echo $RESPONSE | jq -r .account_id)
-          
-          DEVICE_AUTH=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d "{}" https://account-public-service-prod07.ol.epicgames.com/account/api/public/account/$ACCOUNT_ID/deviceAuth)
-          
+          RESPONSE=$(curl -s -X POST "https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -u "34a02cf8f4414e29b15920beb32236f4:abc" \
+            -d "grant_type=authorization_code&code=${{ github.event.inputs.auth_code }}")
+
+          TOKEN=$(echo "$RESPONSE" | jq -r '.access_token // empty')
+          ACCOUNT_ID=$(echo "$RESPONSE" | jq -r '.account_id // empty')
+
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Auth kodu gecersiz veya suresi dolmus (1 dakika icinde kullanilmalidir)!"
+            echo "Epic Yanti: $RESPONSE"
+            exit 1
+          fi
+
+          DEVICE_AUTH=$(curl -s -X POST "https://account-public-service-prod.ol.epicgames.com/account/api/public/account/$ACCOUNT_ID/deviceAuth" \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{}")
+
+          DEVICE_ID=$(echo "$DEVICE_AUTH" | jq -r '.deviceId // empty')
+          SECRET=$(echo "$DEVICE_AUTH" | jq -r '.secret // empty')
+
+          if [ -z "$DEVICE_ID" ]; then
+            echo "::error::Device Auth olusturulamadi!"
+            echo "$DEVICE_AUTH"
+            exit 1
+          fi
+
           echo "=========================================="
           echo "EPIC_ACCOUNT_ID: $ACCOUNT_ID"
-          echo "EPIC_DEVICE_ID: $(echo $DEVICE_AUTH | jq -r .deviceId)"
-          echo "EPIC_SECRET: $(echo $DEVICE_AUTH | jq -r .secret)"
+          echo "EPIC_DEVICE_ID: $DEVICE_ID"
+          echo "EPIC_SECRET: $SECRET"
           echo "=========================================="
