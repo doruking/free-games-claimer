@@ -1,20 +1,26 @@
-name: Claim Free Games
+name: Setup Device Auth
 
 on:
-  schedule:
-    - cron: '0 19 * * *'
   workflow_dispatch:
+    inputs:
+      auth_code:
+        description: 'Epic Auth Kodu'
+        required: true
 
 jobs:
-  claim:
+  get-auth:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Claimer Container
+      - name: Anahtarlari Uret
         run: |
-          docker run --rm \
-            -e EMAIL="${{ secrets.EMAIL }}" \
-            -e PASSWORD="${{ secrets.PASSWORD }}" \
-            -e EG_AUTH_CODE="${{ secrets.EG_AUTH_CODE }}" \
-            -e EG_DEVICE_AUTH="${{ secrets.EG_DEVICE_AUTH }}" \
-            -e EG_CLAIM_UNREAL="true" \
-            ghcr.io/vogler/free-games-claimer:latest sh -c "node epic-games.js && node gog.js"
+          RESPONSE=$(curl -s -d "grant_type=authorization_code&code=${{ github.event.inputs.auth_code }}" -u "34a02cf8f4414e29b15920beb32236f4:abc" https://account-public-service-prod07.ol.epicgames.com/account/api/oauth/token)
+          TOKEN=$(echo $RESPONSE | jq -r .access_token)
+          ACCOUNT_ID=$(echo $RESPONSE | jq -r .account_id)
+          
+          DEVICE_AUTH=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d "{}" https://account-public-service-prod07.ol.epicgames.com/account/api/public/account/$ACCOUNT_ID/deviceAuth)
+          
+          echo "=========================================="
+          echo "EPIC_ACCOUNT_ID: $ACCOUNT_ID"
+          echo "EPIC_DEVICE_ID: $(echo $DEVICE_AUTH | jq -r .deviceId)"
+          echo "EPIC_SECRET: $(echo $DEVICE_AUTH | jq -r .secret)"
+          echo "=========================================="
