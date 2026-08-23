@@ -16,6 +16,6 @@ jobs:
       - run: npm ci
       - run: node index.js
         env:
-          EG_EMAIL: ${{ secrets.EMAIL }}
-          EG_PASSWORD: ${{ secrets.PASSWORD }}
+          EG_EMAIL: ${{ secrets.EG_EMAIL }}
+          EG_PASSWORD: ${{ secrets.EG_PASSWORD }}
           EG_CLAIM_UNREAL: 'true'
