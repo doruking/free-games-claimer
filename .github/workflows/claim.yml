@@ -14,6 +14,7 @@ jobs:
           docker run --rm \
             -e EMAIL="${{ secrets.EMAIL }}" \
             -e PASSWORD="${{ secrets.PASSWORD }}" \
+            -e EG_AUTH_CODE="${{ secrets.EG_AUTH_CODE }}" \
             -e EG_DEVICE_AUTH="${{ secrets.EG_DEVICE_AUTH }}" \
             -e EG_CLAIM_UNREAL="true" \
             ghcr.io/vogler/free-games-claimer:latest sh -c "node epic-games.js && node gog.js"
