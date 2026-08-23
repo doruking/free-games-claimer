@@ -16,4 +16,4 @@ jobs:
             -e PASSWORD="${{ secrets.PASSWORD }}" \
             -e EG_DEVICE_AUTH="${{ secrets.EG_DEVICE_AUTH }}" \
             -e EG_CLAIM_UNREAL="true" \
-            ghcr.io/vogler/free-games-claimer:latest node index.js epic-games gog
+            ghcr.io/vogler/free-games-claimer:latest sh -c "node epic-games.js && node gog.js"
