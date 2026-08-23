@@ -2,8 +2,8 @@ name: Claim Free Games
 
 on:
   schedule:
-    - cron: '0 19 * * *' # Her gün 19:00 UTC (TSİ 22:00)
-  workflow_dispatch: # Manuel çalıştırma butonu
+    - cron: '0 19 * * *'
+  workflow_dispatch:
 
 jobs:
   claim:
@@ -14,5 +14,6 @@ jobs:
           docker run --rm \
             -e EMAIL="${{ secrets.EMAIL }}" \
             -e PASSWORD="${{ secrets.PASSWORD }}" \
+            -e EG_DEVICE_AUTH="${{ secrets.EG_DEVICE_AUTH }}" \
             -e EG_CLAIM_UNREAL="true" \
-            ghcr.io/vogler/free-games-claimer:latest
+            ghcr.io/vogler/free-games-claimer:latest epic-games gog
