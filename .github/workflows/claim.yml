@@ -2,20 +2,16 @@ name: Claim Free Games
 
 on:
   schedule:
-    - cron: '0 19 * * 4' # Her Perşembe 19:00 UTC otomatik çalışır
-  workflow_dispatch: # Manuel tetikleme butonu ekler
+    - cron: '0 19 * * *' # Her gün saat 19:00 UTC (Türkiye saatiyle 22:00) çalışır
+  workflow_dispatch: # Manuel çalıştırma butonu
 
 jobs:
   claim:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: node index.js
+      - name: Run Free Games Claimer
+        uses: docker://ghcr.io/vogler/free-games-claimer:latest
         env:
-          EG_EMAIL: ${{ secrets.EG_EMAIL }}
-          EG_PASSWORD: ${{ secrets.EG_PASSWORD }}
-          EG_CLAIM_UNREAL: 'true'
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          CLAIM_UNREAL: 'true'
