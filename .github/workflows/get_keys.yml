@@ -1,0 +1,49 @@
+name: Get Epic Keys
+
+on:
+  workflow_dispatch:
+    inputs:
+      auth_code:
+        description: 'Epic Auth Kodu'
+        required: true
+
+jobs:
+  generate-keys:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Anahtarlari Uret
+        run: |
+          CODE="${{ github.event.inputs.auth_code }}"
+          CODE=$(echo "$CODE" | tr -d '"' | tr -d "'")
+
+          RESPONSE=$(curl -s -X POST "https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token" \
+            -H "Authorization: Basic M2EyYzlkNWU5NjIzNGFiMWE2NmU2MGIyMWE4YmY2YTg6" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=authorization_code&code=$CODE")
+
+          TOKEN=$(echo "$RESPONSE" | jq -r '.access_token // empty')
+          ACCOUNT_ID=$(echo "$RESPONSE" | jq -r '.account_id // empty')
+
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Kod gecersiz veya suresi doldu! Epic Yaniti: $RESPONSE"
+            exit 1
+          fi
+
+          DEVICE_AUTH=$(curl -s -X POST "https://account-public-service-prod.ol.epicgames.com/account/api/public/account/$ACCOUNT_ID/deviceAuth" \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{}")
+
+          DEVICE_ID=$(echo "$DEVICE_AUTH" | jq -r '.deviceId // empty')
+          SECRET=$(echo "$DEVICE_AUTH" | jq -r '.secret // empty')
+
+          if [ -z "$DEVICE_ID" ]; then
+            echo "::error::Device Auth olusturulamadi! Epic Yaniti: $DEVICE_AUTH"
+            exit 1
+          fi
+
+          echo "=========================================="
+          echo "EPIC_ACCOUNT_ID: $ACCOUNT_ID"
+          echo "EPIC_DEVICE_ID: $DEVICE_ID"
+          echo "EPIC_SECRET: $SECRET"
+          echo "=========================================="
