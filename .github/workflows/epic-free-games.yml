@@ -1,0 +1,50 @@
+name: Epic Ücretsiz Oyunlar
+
+on:
+  schedule:
+    # Epic yeni oyunları perşembe 11:00 ET'de açar (yaz saatinde 15:00 UTC, kışın 16:00 UTC).
+    - cron: '20 15 * * 4'
+    - cron: '20 16 * * 4'
+    # Kaçırılan ya da günlük verilen oyunlar için her sabah bir kontrol daha.
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: epic-free-games
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ücretsiz oyunları kontrol et
+        run: node scripts/epic-free-games.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          # İsteğe bağlı: Secrets olarak eklenirse bildirim gönderilir.
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Sonucu depoya kaydet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add free-games
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok."
+          else
+            git commit -m "Ücretsiz oyun listesi güncellendi"
+            git push
+          fi
