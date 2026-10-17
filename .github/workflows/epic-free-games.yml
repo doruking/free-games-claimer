@@ -1,13 +1,17 @@
-name: Epic Ücretsiz Oyunlar
+name: Ücretsiz Oyunlar (Epic ve Fab)
 
 on:
   schedule:
-    # Epic yeni oyunları perşembe 11:00 ET'de açar (yaz saatinde 15:00 UTC, kışın 16:00 UTC).
-    - cron: '20 15 * * 4'
-    - cron: '20 16 * * 4'
-    # Kaçırılan ya da günlük verilen oyunlar için her sabah bir kontrol daha.
+    # Epic yeni oyunları 11:00 ET'de, Fab içerikleri 9:00 ET'de açar (yaz/kış saati için iki saat denenir).
+    - cron: '20 15,16 * * *'
+    # Kaçırılanlar için her sabah bir kontrol daha.
     - cron: '0 8 * * *'
   workflow_dispatch:
+    inputs:
+      test:
+        description: 'Sadece test bildirimi gönder'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -32,7 +36,10 @@ jobs:
         run: node scripts/epic-free-games.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          # İsteğe bağlı: Secrets olarak eklenirse bildirim gönderilir.
+          NOTIFY_TEST: ${{ inputs.test && '1' || '' }}
+          # Telefon bildirimi (ntfy uygulaması). İstersen NTFY_TOPIC adıyla Secret ekleyerek gizli bir konu kullanabilirsin.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || 'fgc-6fc843db8722' }}
+          # İsteğe bağlı: Secrets olarak eklenirse bu kanallara da bildirim gider.
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -46,5 +53,6 @@ jobs:
             echo "Değişiklik yok."
           else
             git commit -m "Ücretsiz oyun listesi güncellendi"
+            git pull --rebase -q
             git push
           fi
