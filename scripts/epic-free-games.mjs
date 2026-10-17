@@ -179,7 +179,7 @@ const lines = [
   '',
   ...(fab
     ? (fab.items.length ? fab.items.map((i) => `- [${i.title}](${i.url})`) : ['- Fab sayfasından içerik okunamadı.'])
-    : ['- Veri alınamadı.']),
+    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('Fab:')) ?? 'bilinmeyen hata'}).`]),
   '',
 ];
 const markdown = lines.join('\n');
