@@ -56,6 +56,33 @@ async function getEpic() {
   return { key: current.map((g) => `${g.id}@${g.endsAt}`).sort().join('|'), current, upcoming };
 }
 
+// ---------- Steam (kalıcı ücretsiz: %100 indirimli oyunlar) ----------
+// Free-to-play oyunlar ve "hafta sonu ücretsiz" denemeleri bu listeye girmez; sadece hesaba kalıcı eklenenler.
+const decode = (t) => t
+  .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'")
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
+async function getSteam() {
+  const url = `https://store.steampowered.com/search/results/?query&start=0&count=100&sort_by=Released_DESC&maxprice=free&specials=1&category1=998&infinite=1&cc=${COUNTRY}&l=turkish`;
+  const res = await fetch(url, { headers: { 'user-agent': UA, 'accept-language': 'tr-TR,tr;q=0.9' } });
+  if (!res.ok) throw new Error(`Steam hata verdi: HTTP ${res.status}`);
+  const data = await res.json();
+  if (typeof data?.results_html !== 'string') throw new Error('Steam yanıtı beklenen biçimde değil.');
+
+  const items = [];
+  for (const m of data.results_html.matchAll(/<a\b[^>]*search_result_row[\s\S]*?<\/a>/g)) {
+    const block = m[0];
+    const id = block.match(/data-ds-appid="(\d+)"/)?.[1];
+    const title = block.match(/<span class="title">([\s\S]*?)<\/span>/)?.[1];
+    const pct = block.match(/discount_pct">\s*-?(\d+)%/)?.[1];
+    if (!id || !title || pct !== '100') continue;
+    items.push({ id, title: decode(title), url: `https://store.steampowered.com/app/${id}/` });
+  }
+  if (!items.length && Number(data.total_count) > 0) throw new Error('Steam sonuçları ayrıştırılamadı.');
+  items.sort((a, b) => a.title.localeCompare(b.title));
+  return { key: items.map((i) => i.id).sort().join('|'), items };
+}
+
 // ---------- Fab hatırlatması ----------
 // Fab sayfası GitHub sunucularından gelen istekleri engellediği için okunmaz; bunun yerine,
 // iki haftada bir salı günü (10:00 ET) yenilenen ücretsiz içerikler için hatırlatma gönderilir.
@@ -128,10 +155,12 @@ try {
   previous = JSON.parse(await readFile(`${OUT_DIR}/latest.json`, 'utf8'));
 } catch { /* ilk çalıştırma */ }
 const previousEpicKey = previous.epic?.key ?? previous.key ?? null; // eski dosya biçimiyle uyumlu
+const previousSteamIds = new Set((previous.steam?.items ?? []).map((i) => i.id));
 const previousFabReminder = previous.fabReminder ?? null;
 
 const errors = [];
 const epic = await getEpic().catch((e) => { errors.push(`Epic: ${e.message}`); return null; });
+const steam = await getSteam().catch((e) => { errors.push(`Steam: ${e.message}`); return null; });
 errors.forEach((e) => console.warn(`UYARI ${e}`));
 if (!epic) throw new Error('Hiçbir kaynaktan veri alınamadı.');
 
@@ -152,6 +181,12 @@ const lines = [
   '',
   ...(epic?.upcoming.length ? epic.upcoming.map((g) => `- ${g.title} — ${fmt(g.startsAt)} tarihinde başlıyor`) : ['- Duyurulmuş bir sonraki oyun yok.']),
   '',
+  '## Steam — kalıcı ücretsiz (%100 indirim)',
+  '',
+  ...(steam
+    ? (steam.items.length ? steam.items.map((i) => `- [${i.title}](${i.url})`) : ['- Şu an kalıcı ücretsiz oyun görünmüyor.'])
+    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('Steam:')) ?? 'bilinmeyen hata'}).`]),
+  '',
   '## Fab',
   '',
   `- İki haftada bir salı günü yenilenir, [ücretsiz içerikler](${FAB_URL}). Bir sonraki hatırlatma günü: ${nextFabDay}.`,
@@ -162,6 +197,7 @@ const markdown = lines.join('\n');
 await mkdir(OUT_DIR, { recursive: true });
 await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   epic: epic ?? previous.epic ?? null,
+  steam: steam ?? previous.steam ?? null,
   fabReminder: previousFabReminder,
 }, null, 2) + '\n');
 await writeFile(`${OUT_DIR}/latest.md`, markdown);
@@ -181,6 +217,21 @@ if (epic?.current.length && epic.key !== previousEpicKey) {
   });
 } else {
   console.log('Epic: bildirim gerekmiyor.');
+}
+
+const newSteam = steam?.items.filter((i) => !previousSteamIds.has(i.id)) ?? [];
+if (newSteam.length) {
+  await notify({
+    title: `Steam'de kalıcı ücretsiz: ${newSteam.map((i) => i.title).join(', ')}`,
+    plain: [
+      ...newSteam.map((i) => `• ${i.title}\n  ${i.url}`),
+      '',
+      'Kütüphanene kalıcı eklemek için sayfada "Kütüphaneme Ekle" de. Süre sınırlı olabilir.',
+    ].join('\n'),
+    links: newSteam.map((i) => ({ label: i.title, url: i.url })),
+  });
+} else {
+  console.log('Steam: bildirim gerekmiyor.');
 }
 
 if (fabDropDay && previousFabReminder !== fabDropKey) {
