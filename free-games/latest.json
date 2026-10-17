@@ -32,5 +32,9 @@
       }
     ]
   },
+  "steam": {
+    "key": "",
+    "items": []
+  },
   "fabReminder": null
 }

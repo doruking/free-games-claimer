@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 17 Ekim 2026 20:52 (İstanbul saati)
+Son kontrol: 17 Ekim 2026 22:01 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -11,6 +11,10 @@ Son kontrol: 17 Ekim 2026 20:52 (İstanbul saati)
 
 - Home - A Unique Horror Adventure — 22 Ekim 2026 18:00 tarihinde başlıyor
 - Sker Ritual — 22 Ekim 2026 18:00 tarihinde başlıyor
+
+## Steam — kalıcı ücretsiz (%100 indirim)
+
+- Şu an kalıcı ücretsiz oyun görünmüyor.
 
 ## Fab
 
