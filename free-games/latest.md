@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 17 Ekim 2026 16:08 (İstanbul saati)
+Son kontrol: 17 Ekim 2026 16:09 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -14,4 +14,4 @@ Son kontrol: 17 Ekim 2026 16:08 (İstanbul saati)
 
 ## Fab — şu an ücretsiz
 
-- Veri alınamadı.
+- Veri alınamadı (Fab: Fab sayfası hata verdi: HTTP 403).
