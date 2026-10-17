@@ -83,6 +83,34 @@ async function getSteam() {
   return { key: items.map((i) => i.id).sort().join('|'), items };
 }
 
+// ---------- GOG (indirimle bedava olan oyunlar; DRM'siz, hesaba kalıcı eklenir) ----------
+const money = (v) => {
+  const n = Number(String(v ?? '').replace(/[^\d.,]/g, '').replace(',', '.'));
+  return Number.isFinite(n) && String(v ?? '') !== '' ? n : NaN;
+};
+
+async function getGog() {
+  const url = `https://catalog.gog.com/v1/catalog?limit=48&page=1&order=desc%3Atrending&productType=in%3Agame%2Cpack&price=between%3A0%2C0&discounted=eq%3Atrue&countryCode=${COUNTRY}&locale=tr-TR&currencyCode=USD`;
+  const res = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } });
+  if (!res.ok) throw new Error(`GOG hata verdi: HTTP ${res.status}`);
+  const data = await res.json();
+  if (!Array.isArray(data?.products)) throw new Error('GOG yanıtı beklenen biçimde değil (products yok).');
+
+  const items = [];
+  for (const p of data.products) {
+    const final = money(p.price?.finalMoney?.amount ?? p.price?.final);
+    const base = money(p.price?.baseMoney?.amount ?? p.price?.base);
+    if (!p.id || !p.title || final !== 0 || !(base > 0)) continue; // sadece indirimle bedava olanlar
+    items.push({ id: String(p.id), title: decode(p.title), url: p.storeLink ?? `https://www.gog.com/en/game/${p.slug}` });
+  }
+  if (!items.length && data.products.length) {
+    const first = data.products[0];
+    throw new Error(`GOG ürünleri ayrıştırılamadı (alanlar: ${Object.keys(first).join(',')}; fiyat: ${JSON.stringify(first.price)?.slice(0, 120)})`);
+  }
+  items.sort((a, b) => a.title.localeCompare(b.title));
+  return { key: items.map((i) => i.id).sort().join('|'), items };
+}
+
 // ---------- Fab hatırlatması ----------
 // Fab sayfası GitHub sunucularından gelen istekleri engellediği için okunmaz; bunun yerine,
 // iki haftada bir salı günü (10:00 ET) yenilenen ücretsiz içerikler için hatırlatma gönderilir.
@@ -156,11 +184,13 @@ try {
 } catch { /* ilk çalıştırma */ }
 const previousEpicKey = previous.epic?.key ?? previous.key ?? null; // eski dosya biçimiyle uyumlu
 const previousSteamIds = new Set((previous.steam?.items ?? []).map((i) => i.id));
+const previousGogIds = new Set((previous.gog?.items ?? []).map((i) => i.id));
 const previousFabReminder = previous.fabReminder ?? null;
 
 const errors = [];
 const epic = await getEpic().catch((e) => { errors.push(`Epic: ${e.message}`); return null; });
 const steam = await getSteam().catch((e) => { errors.push(`Steam: ${e.message}`); return null; });
+const gog = await getGog().catch((e) => { errors.push(`GOG: ${e.message}`); return null; });
 errors.forEach((e) => console.warn(`UYARI ${e}`));
 if (!epic) throw new Error('Hiçbir kaynaktan veri alınamadı.');
 
@@ -187,6 +217,12 @@ const lines = [
     ? (steam.items.length ? steam.items.map((i) => `- [${i.title}](${i.url})`) : ['- Şu an kalıcı ücretsiz oyun görünmüyor.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('Steam:')) ?? 'bilinmeyen hata'}).`]),
   '',
+  '## GOG — bedava (indirimle)',
+  '',
+  ...(gog
+    ? (gog.items.length ? gog.items.map((i) => `- [${i.title}](${i.url})`) : ['- Şu an bedava oyun görünmüyor.'])
+    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('GOG:')) ?? 'bilinmeyen hata'}).`]),
+  '',
   '## Fab',
   '',
   `- İki haftada bir salı günü yenilenir, [ücretsiz içerikler](${FAB_URL}). Bir sonraki hatırlatma günü: ${nextFabDay}.`,
@@ -198,6 +234,7 @@ await mkdir(OUT_DIR, { recursive: true });
 await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   epic: epic ?? previous.epic ?? null,
   steam: steam ?? previous.steam ?? null,
+  gog: gog ?? previous.gog ?? null,
   fabReminder: previousFabReminder,
 }, null, 2) + '\n');
 await writeFile(`${OUT_DIR}/latest.md`, markdown);
@@ -232,6 +269,21 @@ if (newSteam.length) {
   });
 } else {
   console.log('Steam: bildirim gerekmiyor.');
+}
+
+const newGog = gog?.items.filter((i) => !previousGogIds.has(i.id)) ?? [];
+if (newGog.length) {
+  await notify({
+    title: `GOG'da bedava: ${newGog.map((i) => i.title).join(', ')}`,
+    plain: [
+      ...newGog.map((i) => `• ${i.title}\n  ${i.url}`),
+      '',
+      'Hesabına eklemek için sayfada sepete ekleyip ücretsiz satın al. Süre sınırlı olabilir.',
+    ].join('\n'),
+    links: newGog.map((i) => ({ label: i.title, url: i.url })),
+  });
+} else {
+  console.log('GOG: bildirim gerekmiyor.');
 }
 
 if (fabDropDay && previousFabReminder !== fabDropKey) {
