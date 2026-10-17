@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 17 Ekim 2026 16:09 (İstanbul saati)
+Son kontrol: 17 Ekim 2026 16:13 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -12,6 +12,6 @@ Son kontrol: 17 Ekim 2026 16:09 (İstanbul saati)
 - Home - A Unique Horror Adventure — 22 Ekim 2026 18:00 tarihinde başlıyor
 - Sker Ritual — 22 Ekim 2026 18:00 tarihinde başlıyor
 
-## Fab — şu an ücretsiz
+## Fab
 
-- Veri alınamadı (Fab: Fab sayfası hata verdi: HTTP 403).
+- İki haftada bir salı günü yenilenir, [ücretsiz içerikler](https://www.fab.com/limited-time-free). Bir sonraki hatırlatma günü: 2026-10-20.
