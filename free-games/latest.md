@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 17 Ekim 2026 22:01 (İstanbul saati)
+Son kontrol: 17 Ekim 2026 22:07 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -15,6 +15,10 @@ Son kontrol: 17 Ekim 2026 22:01 (İstanbul saati)
 ## Steam — kalıcı ücretsiz (%100 indirim)
 
 - Şu an kalıcı ücretsiz oyun görünmüyor.
+
+## GOG — bedava (indirimle)
+
+- Şu an bedava oyun görünmüyor.
 
 ## Fab
 
