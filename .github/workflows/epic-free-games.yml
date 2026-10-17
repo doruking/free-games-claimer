@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           NOTIFY_TEST: ${{ inputs.test && '1' || '' }}
-          # Telefon bildirimi (ntfy uygulaması). İstersen NTFY_TOPIC adıyla Secret ekleyerek gizli bir konu kullanabilirsin.
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || 'fgc-6fc843db8722' }}
+          # Telefon bildirimi (ntfy uygulaması): gizli konu adı NTFY_TOPIC Secret'ında tutulur.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           # İsteğe bağlı: Secrets olarak eklenirse bu kanallara da bildirim gider.
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

@@ -56,38 +56,14 @@ async function getEpic() {
   return { key: current.map((g) => `${g.id}@${g.endsAt}`).sort().join('|'), current, upcoming };
 }
 
-// ---------- Fab (Epic'in içerik mağazası) ----------
-const decode = (s) => s
-  .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'")
-  .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
-
-async function getFab() {
-  const headers = { 'user-agent': UA, 'accept-language': 'en-US,en;q=0.9' };
-  const res = await fetch(FAB_URL, { headers });
-  if (!res.ok) throw new Error(`Fab sayfası hata verdi: HTTP ${res.status}`);
-  const html = await res.text();
-
-  const uuid = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
-  const ids = [...new Set([...html.matchAll(new RegExp(`/listings/(${uuid})`, 'g'))].map((m) => m[1]))];
-  const text = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  const endsText = text.match(/Until\s+([A-Z][a-z]+ \d{1,2} at \d{1,2}:\d{2}\s?[AP]M\s?[A-Z]{2,4})/)?.[1] ?? null;
-
-  const items = [];
-  for (const id of ids) {
-    const url = `https://www.fab.com/listings/${id}`;
-    let title = null;
-    try {
-      const r = await fetch(url, { headers });
-      if (r.ok) {
-        const page = await r.text();
-        const raw = page.match(/<meta[^>]+property="og:title"[^>]+content="([^"]+)"/)?.[1] ?? page.match(/<title>([^<]+)<\/title>/)?.[1];
-        if (raw) title = decode(raw).replace(/\s*\|\s*Fab$/i, '');
-      }
-    } catch { /* başlık alınamazsa kimlikle devam */ }
-    items.push({ id, title: title ?? `Fab içeriği (${id.slice(0, 8)})`, url });
-  }
-  return { key: items.map((i) => i.id).sort().join('|'), items, endsText, rawLinkCount: ids.length };
-}
+// ---------- Fab hatırlatması ----------
+// Fab sayfası GitHub sunucularından gelen istekleri engellediği için okunmaz; bunun yerine,
+// iki haftada bir salı günü (10:00 ET) yenilenen ücretsiz içerikler için hatırlatma gönderilir.
+const FAB_ANCHOR = Date.UTC(2026, 9, 20); // 20 Ekim 2026: bir Fab yenilenme günü
+const todayUtc = Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), new Date(now).getUTCDate());
+const fabDaysSince = Math.round((todayUtc - FAB_ANCHOR) / 86400000);
+const fabDropDay = fabDaysSince >= 0 && fabDaysSince % 14 === 0;
+const fabDropKey = new Date(todayUtc).toISOString().slice(0, 10);
 
 // ---------- Bildirimler ----------
 const attempt = async (name, fn) => {
@@ -152,13 +128,14 @@ try {
   previous = JSON.parse(await readFile(`${OUT_DIR}/latest.json`, 'utf8'));
 } catch { /* ilk çalıştırma */ }
 const previousEpicKey = previous.epic?.key ?? previous.key ?? null; // eski dosya biçimiyle uyumlu
-const previousFabKey = previous.fab?.key ?? null;
+const previousFabReminder = previous.fabReminder ?? null;
 
 const errors = [];
 const epic = await getEpic().catch((e) => { errors.push(`Epic: ${e.message}`); return null; });
-const fab = await getFab().catch((e) => { errors.push(`Fab: ${e.message}`); return null; });
 errors.forEach((e) => console.warn(`UYARI ${e}`));
-if (!epic && !fab) throw new Error('Hiçbir kaynaktan veri alınamadı.');
+if (!epic) throw new Error('Hiçbir kaynaktan veri alınamadı.');
+
+const nextFabDay = new Date(FAB_ANCHOR + Math.ceil(Math.max(fabDaysSince, 0) / 14) * 14 * 86400000).toISOString().slice(0, 10);
 
 const lines = [
   '# Ücretsiz oyunlar ve içerikler',
@@ -175,11 +152,9 @@ const lines = [
   '',
   ...(epic?.upcoming.length ? epic.upcoming.map((g) => `- ${g.title} — ${fmt(g.startsAt)} tarihinde başlıyor`) : ['- Duyurulmuş bir sonraki oyun yok.']),
   '',
-  `## Fab — şu an ücretsiz${fab?.endsText ? ` (Until ${fab.endsText})` : ''}`,
+  '## Fab',
   '',
-  ...(fab
-    ? (fab.items.length ? fab.items.map((i) => `- [${i.title}](${i.url})`) : ['- Fab sayfasından içerik okunamadı.'])
-    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('Fab:')) ?? 'bilinmeyen hata'}).`]),
+  `- İki haftada bir salı günü yenilenir, [ücretsiz içerikler](${FAB_URL}). Bir sonraki hatırlatma günü: ${nextFabDay}.`,
   '',
 ];
 const markdown = lines.join('\n');
@@ -187,7 +162,7 @@ const markdown = lines.join('\n');
 await mkdir(OUT_DIR, { recursive: true });
 await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   epic: epic ?? previous.epic ?? null,
-  fab: fab ?? previous.fab ?? null,
+  fabReminder: previousFabReminder,
 }, null, 2) + '\n');
 await writeFile(`${OUT_DIR}/latest.md`, markdown);
 
@@ -208,17 +183,20 @@ if (epic?.current.length && epic.key !== previousEpicKey) {
   console.log('Epic: bildirim gerekmiyor.');
 }
 
-if (fab?.items.length && fab.key !== previousFabKey) {
+if (fabDropDay && previousFabReminder !== fabDropKey) {
   await notify({
-    title: `Fab'da ücretsiz: ${fab.items.map((i) => i.title).join(', ')}`,
+    title: "Fab'da yeni ücretsiz içerikler çıkmış olabilir",
     plain: [
-      ...fab.items.map((i) => `• ${i.title}\n  ${i.url}`),
+      "Fab'daki ücretsiz içerikler iki haftada bir yenilenir. Süre bitmeden bakmak için:",
+      FAB_URL,
       '',
-      fab.endsText ? `Süre: Until ${fab.endsText}` : 'Süre sınırlı, erken al.',
-      'Fab hesabına eklemek için bağlantıya tıklayıp "Add to My Library" de.',
+      'Hesabına eklemek için içeriğe girip "Add to My Library" de.',
     ].join('\n'),
-    links: fab.items.map((i) => ({ label: i.title, url: i.url })),
+    links: [{ label: "Fab ücretsiz içerikler", url: FAB_URL }],
   });
+  const state = JSON.parse(await readFile(`${OUT_DIR}/latest.json`, 'utf8'));
+  state.fabReminder = fabDropKey;
+  await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify(state, null, 2) + '\n');
 } else {
-  console.log('Fab: bildirim gerekmiyor.');
+  console.log('Fab: hatırlatma günü değil.');
 }
