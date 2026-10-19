@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 18 Ekim 2026 21:12 (İstanbul saati)
+Son kontrol: 19 Ekim 2026 18:21 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
