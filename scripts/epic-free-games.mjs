@@ -111,6 +111,100 @@ async function getGog() {
   return { key: items.map((i) => i.id).sort().join('|'), items };
 }
 
+// ---------- LootScraper (Prime Gaming, Humble, App Store, Play Store, Fab, Epic mobil) ----------
+// Açık kaynak LootScraper projesinin herkese açık Atom yayını. Steam, GOG ve Epic PC zaten yukarıda doğrudan kontrol edilir.
+const LOOT_FEED = 'https://feed.eikowagenknecht.com/lootscraper.xml';
+const LOOT_SKIP_SOURCES = new Set(['steam', 'gog']);
+const DAY = 86400000;
+
+const parseAtom = (xml) => [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => {
+  const e = m[1];
+  const rawTitle = decode(e.match(/<title[^>]*>([\s\S]*?)<\/title>/)?.[1] ?? '');
+  const t = rawTitle.match(/^([^:]+):\s*(.+)$/);
+  const terms = [...e.matchAll(/<category\b([^>]*?)\/?>/g)]
+    .map((c) => (c[1].match(/(?:term|label)="([^"]*)"/)?.[1] ?? '').toLowerCase()).filter(Boolean);
+  return {
+    id: (e.match(/<id>([^<]*)<\/id>/)?.[1] ?? '').trim(),
+    source: (t?.[1] ?? 'Diğer').trim(),
+    title: (t?.[2] ?? rawTitle).trim(),
+    url: (e.match(/<link\b[^>]*href="([^"]+)"/)?.[1] ?? '').replace(/&amp;/g, '&'),
+    published: Date.parse(e.match(/<published>([^<]+)</)?.[1] ?? ''),
+    note: decode(e.match(/<li>([\s\S]*?)<\/li>/)?.[1] ?? '').slice(0, 140),
+    terms,
+    raw: e,
+  };
+}).filter((x) => x.id && x.url && Number.isFinite(x.published));
+
+async function getLoot() {
+  const res = await fetch(LOOT_FEED, { headers: { 'user-agent': UA, accept: 'application/atom+xml, application/xml, text/xml, */*' } });
+  if (!res.ok) throw new Error(`LootScraper hata verdi: HTTP ${res.status}`);
+  const entries = parseAtom(await res.text());
+  if (!entries.length) throw new Error('LootScraper yayınında içerik okunamadı.');
+
+  const items = [];
+  for (const x of entries) {
+    const src = x.source.toLowerCase();
+    if (LOOT_SKIP_SOURCES.has(src)) continue;
+    if (x.terms.includes('loot')) continue; // oyun içi eşyalar bildirilmez
+    const mobile = x.terms.includes('ios') || /-ios-/.test(x.url) ? 'iOS' : (x.terms.includes('android') || /-android-/.test(x.url) ? 'Android' : null);
+    if (src.startsWith('epic') && !mobile) continue; // Epic PC yukarıda zaten var
+    if (now - x.published > 7 * DAY) continue;
+    items.push({ id: x.id, source: x.source, title: x.title + (src.startsWith('epic') && mobile ? ` (${mobile})` : ''), url: x.url, published: new Date(x.published).toISOString(), note: x.note });
+  }
+  items.sort((a, b) => b.published.localeCompare(a.published));
+  return { items, allIds: entries.map((x) => x.id), debug: entries.slice(0, 2).map((x) => x.raw).join('\n-----\n').slice(0, 3000) };
+}
+
+// ---------- Legion Gaming Community (Game Key Drops) ----------
+const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+const LEGION_BASE = 'https://gaming.lenovo.com';
+const stripTags = (h) => decode(h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' '));
+
+const parseMonthDay = (text) => {
+  const m = text.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?\b/i);
+  if (!m) return null;
+  const month = MONTHS[m[1].toLowerCase()];
+  const day = Number(m[2]);
+  const today = new Date(now);
+  let year = today.getUTCFullYear();
+  if (Date.UTC(year, month, day) < now - 30 * DAY) year += 1;
+  return new Date(Date.UTC(year, month, day)).toISOString().slice(0, 10);
+};
+
+const titleFromSlug = (href) => {
+  const seg = decodeURIComponent(href.split(/[?#]/)[0].split('/').filter(Boolean).pop() ?? '');
+  const words = seg.replace(/---game-key-drops.*$/i, '').replace(/^coming-soon-/i, '').replace(/-key-drops?$/i, '').split('-').filter(Boolean);
+  return words.map((w) => w[0].toUpperCase() + w.slice(1)).join(' ') || seg;
+};
+
+async function getLegion() {
+  const res = await fetch(`${LEGION_BASE}/game-key-drops`, { headers: { 'user-agent': UA, 'accept-language': 'en-US,en;q=0.9' } });
+  if (!res.ok) throw new Error(`Legion sayfası hata verdi: HTTP ${res.status}`);
+  const html = await res.text();
+  const anchors = [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+
+  const events = [];
+  let prevEnd = 0;
+  for (const m of anchors) {
+    const href = m[1].replace(/&amp;/g, '&');
+    const before = html.slice(prevEnd, m.index);
+    const after = html.slice(m.index + m[0].length, m.index + m[0].length + 1500);
+    prevEnd = m.index + m[0].length;
+    const path = href.split(/[?#]/)[0];
+    if (!/key-drop/i.test(href) || /\/game-key-drops\/?$/i.test(path)) continue;
+    const url = href.startsWith('http') ? href : LEGION_BASE + (href.startsWith('/') ? '' : '/') + href;
+    if (events.some((e) => e.url === url)) continue;
+    const label = stripTags(m[2]);
+    if (/\bended\b/i.test(label) || /ended/i.test(path)) continue; // bitmiş drop'lar bildirilmesin
+    const title = label && !/^(learn more|read more|more|join|details?)$/i.test(label) ? label : titleFromSlug(href);
+    const date = parseMonthDay(stripTags(before).slice(-300)) ?? parseMonthDay(stripTags(after).slice(0, 300));
+    events.push({ title, url, date });
+  }
+  const debug = `anchor sayısı: ${anchors.length}\nbağlantılar:\n${anchors.map((a) => a[1]).slice(0, 60).join('\n')}\n\nmetin:\n${stripTags(html).slice(0, 2500)}`;
+  if (!events.length) throw Object.assign(new Error(`Legion etkinlikleri bulunamadı (anchor sayısı: ${anchors.length}).`), { debug });
+  return { events, debug };
+}
+
 // ---------- Fab hatırlatması ----------
 // Fab sayfası GitHub sunucularından gelen istekleri engellediği için okunmaz; bunun yerine,
 // iki haftada bir salı günü (10:00 ET) yenilenen ücretsiz içerikler için hatırlatma gönderilir.
@@ -185,12 +279,18 @@ try {
 const previousEpicKey = previous.epic?.key ?? previous.key ?? null; // eski dosya biçimiyle uyumlu
 const previousSteamIds = new Set((previous.steam?.items ?? []).map((i) => i.id));
 const previousGogIds = new Set((previous.gog?.items ?? []).map((i) => i.id));
+const previousLootSeen = new Set(previous.lootscraper?.seen ?? []);
+const previousLegionUrls = new Set((previous.legion?.events ?? []).map((e) => e.url));
+const previousLegionReminded = new Set(previous.legion?.reminded ?? []);
 const previousFabReminder = previous.fabReminder ?? null;
 
 const errors = [];
 const epic = await getEpic().catch((e) => { errors.push(`Epic: ${e.message}`); return null; });
 const steam = await getSteam().catch((e) => { errors.push(`Steam: ${e.message}`); return null; });
 const gog = await getGog().catch((e) => { errors.push(`GOG: ${e.message}`); return null; });
+const loot = await getLoot().catch((e) => { errors.push(`LootScraper: ${e.message}`); return null; });
+let legionDebug = '';
+const legion = await getLegion().catch((e) => { errors.push(`Legion: ${e.message}`); legionDebug = e.debug ?? ''; return null; });
 errors.forEach((e) => console.warn(`UYARI ${e}`));
 if (!epic) throw new Error('Hiçbir kaynaktan veri alınamadı.');
 
@@ -223,9 +323,21 @@ const lines = [
     ? (gog.items.length ? gog.items.map((i) => `- [${i.title}](${i.url})`) : ['- Şu an bedava oyun görünmüyor.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('GOG:')) ?? 'bilinmeyen hata'}).`]),
   '',
+  '## Diğer platformlar (Prime Gaming, Humble, App Store, Play Store, Fab, Epic mobil) — son 7 gün',
+  '',
+  ...(loot
+    ? (loot.items.length ? loot.items.map((i) => `- ${i.source}: [${i.title}](${i.url})${i.note ? ` — ${i.note}` : ''}`) : ['- Yeni bir şey görünmüyor.'])
+    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('LootScraper:')) ?? 'bilinmeyen hata'}).`]),
+  '',
+  '## Legion Gaming Community — Game Key Drops',
+  '',
+  ...(legion
+    ? legion.events.map((e) => `- [${e.title}](${e.url})${e.date ? ` — ${e.date}` : ' — tarih okunamadı'}`)
+    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('Legion:')) ?? 'bilinmeyen hata'}).`]),
+  '',
   '## Fab',
   '',
-  `- İki haftada bir salı günü yenilenir, [ücretsiz içerikler](${FAB_URL}). Bir sonraki hatırlatma günü: ${nextFabDay}.`,
+  `- İki haftada bir salı günü yenilenir, [ücretsiz içerikler](${FAB_URL}). Oyun adları yukarıdaki bölümde görünür.`,
   '',
 ];
 const markdown = lines.join('\n');
@@ -235,9 +347,13 @@ await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   epic: epic ?? previous.epic ?? null,
   steam: steam ?? previous.steam ?? null,
   gog: gog ?? previous.gog ?? null,
+  lootscraper: loot ? { seen: [...new Set([...loot.allIds, ...previousLootSeen])].slice(0, 600), items: loot.items } : previous.lootscraper ?? null,
+  legion: legion ? { events: legion.events, reminded: [...previousLegionReminded] } : previous.legion ?? null,
   fabReminder: previousFabReminder,
 }, null, 2) + '\n');
 await writeFile(`${OUT_DIR}/latest.md`, markdown);
+if (loot?.debug) await writeFile(`${OUT_DIR}/debug-lootscraper.txt`, loot.debug);
+if (legion?.debug || legionDebug) await writeFile(`${OUT_DIR}/debug-legion.txt`, legion?.debug ?? legionDebug);
 
 console.log(markdown);
 if (process.env.GITHUB_STEP_SUMMARY) await writeFile(process.env.GITHUB_STEP_SUMMARY, markdown, { flag: 'a' });
@@ -286,7 +402,56 @@ if (newGog.length) {
   console.log('GOG: bildirim gerekmiyor.');
 }
 
-if (fabDropDay && previousFabReminder !== fabDropKey) {
+// LootScraper: yeni çıkanlar, kaynak başına tek bildirim
+if (loot) {
+  const firstRun = !previous.lootscraper;
+  const fresh = loot.items.filter((i) => (firstRun ? now - Date.parse(i.published) < 2 * DAY : !previousLootSeen.has(i.id)));
+  const bySource = Map.groupBy ? Map.groupBy(fresh, (i) => i.source) : fresh.reduce((m, i) => m.set(i.source, [...(m.get(i.source) ?? []), i]), new Map());
+  for (const [source, list] of bySource) {
+    await notify({
+      title: `${source}'da ücretsiz: ${list.map((i) => i.title).join(', ')}`.slice(0, 200),
+      plain: [...list.map((i) => `• ${i.title}\n  ${i.url}${i.note ? `\n  ${i.note}` : ''}`), '', 'Süre sınırlı olabilir, erken al.'].join('\n'),
+      links: list.map((i) => ({ label: i.title, url: i.url })),
+    });
+  }
+  if (!fresh.length) console.log('LootScraper: bildirim gerekmiyor.');
+}
+
+// Legion: yeni etkinlik ve etkinlik günü hatırlatması
+if (legion) {
+  const today = new Date(now).toISOString().slice(0, 10);
+  const firstRun = !previous.legion;
+  const reminded = new Set(previousLegionReminded);
+  let changed = false;
+  for (const ev of legion.events) {
+    if (ev.date && ev.date < today) continue;
+    const prep = 'Hazırlık: ücretsiz Legion Gaming Community hesabı + doğrulanmış e-postalı Twitch hesabı (son etkinlikte Gamesplanet hesabı da gerekiyordu). Anahtarlar dakikalar içinde tükenebilir, saat sayfada yazmıyor; son etkinlikte 12:00 ET idi.';
+    if (!previousLegionUrls.has(ev.url) || (firstRun && !previousLegionUrls.size)) {
+      await notify({
+        title: `Legion bedava oyun etkinliği: ${ev.title}${ev.date ? ` (${ev.date})` : ''}`,
+        plain: `${ev.title}${ev.date ? ` — ${ev.date}` : ''}\n${ev.url}\n\n${prep}`,
+        links: [{ label: ev.title, url: ev.url }],
+      });
+    }
+    const rkey = `${ev.url}@${ev.date}`;
+    if (ev.date === today && new Date(now).getUTCHours() >= 14 && !reminded.has(rkey)) {
+      await notify({
+        title: `Legion etkinliği bugün: ${ev.title}`,
+        plain: `Bugün başlıyor olabilir: ${ev.title}\n${ev.url}\n\n${prep}`,
+        links: [{ label: ev.title, url: ev.url }],
+      });
+      reminded.add(rkey);
+      changed = true;
+    }
+  }
+  if (changed) {
+    const state = JSON.parse(await readFile(`${OUT_DIR}/latest.json`, 'utf8'));
+    state.legion = { ...(state.legion ?? {}), reminded: [...reminded] };
+    await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify(state, null, 2) + '\n');
+  }
+}
+
+if (fabDropDay && !loot && previousFabReminder !== fabDropKey) {
   await notify({
     title: "Fab'da yeni ücretsiz içerikler çıkmış olabilir",
     plain: [
