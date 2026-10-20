@@ -117,20 +117,25 @@ const LOOT_FEED = 'https://feed.eikowagenknecht.com/lootscraper.xml';
 const LOOT_SKIP_SOURCES = new Set(['steam', 'gog']);
 const DAY = 86400000;
 
+// Kategori etiketini okur, ör. <category term="platform:PC" scheme=".../platform" label="PC"/>
+const catOf = (e, kind) => e.match(new RegExp(`<category\\b[^>]*scheme="[^"]*/${kind}"[^>]*label="([^"]*)"`))?.[1]
+  ?? e.match(new RegExp(`<category\\b[^>]*label="([^"]*)"[^>]*scheme="[^"]*/${kind}"`))?.[1] ?? '';
+
+// Başlık biçimi: "Amazon Prime (Game, PC) - Oyun Adı"
 const parseAtom = (xml) => [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => {
   const e = m[1];
   const rawTitle = decode(e.match(/<title[^>]*>([\s\S]*?)<\/title>/)?.[1] ?? '');
-  const t = rawTitle.match(/^([^:]+):\s*(.+)$/);
-  const terms = [...e.matchAll(/<category\b([^>]*?)\/?>/g)]
-    .map((c) => (c[1].match(/(?:term|label)="([^"]*)"/)?.[1] ?? '').toLowerCase()).filter(Boolean);
+  const t = rawTitle.match(/^(.+?)\s\(([^)]*)\)\s-\s(.+)$/);
+  const until = e.match(/Offer valid to:(?:<\/b>|&lt;\/b&gt;)\s*([^<&]+)/i)?.[1]?.trim();
   return {
     id: (e.match(/<id>([^<]*)<\/id>/)?.[1] ?? '').trim(),
-    source: (t?.[1] ?? 'Diğer').trim(),
-    title: (t?.[2] ?? rawTitle).trim(),
+    source: (catOf(e, 'source') || t?.[1] || 'Diğer').trim(),
+    platform: (catOf(e, 'platform') || t?.[2]?.split(',').pop() || '').trim(),
+    type: (catOf(e, 'type') || t?.[2]?.split(',')[0] || '').trim().toLowerCase(),
+    title: (t?.[3] ?? rawTitle).trim(),
     url: (e.match(/<link\b[^>]*href="([^"]+)"/)?.[1] ?? '').replace(/&amp;/g, '&'),
     published: Date.parse(e.match(/<published>([^<]+)</)?.[1] ?? ''),
-    note: decode(e.match(/<li>([\s\S]*?)<\/li>/)?.[1] ?? '').slice(0, 140),
-    terms,
+    note: until ? `son: ${until}` : '',
     raw: e,
   };
 }).filter((x) => x.id && x.url && Number.isFinite(x.published));
@@ -144,12 +149,13 @@ async function getLoot() {
   const items = [];
   for (const x of entries) {
     const src = x.source.toLowerCase();
-    if (LOOT_SKIP_SOURCES.has(src)) continue;
-    if (x.terms.includes('loot')) continue; // oyun içi eşyalar bildirilmez
-    const mobile = x.terms.includes('ios') || /-ios-/.test(x.url) ? 'iOS' : (x.terms.includes('android') || /-android-/.test(x.url) ? 'Android' : null);
+    if (LOOT_SKIP_SOURCES.has(src)) continue; // Steam ve GOG yukarıda doğrudan kontrol ediliyor
+    if (x.type === 'loot') continue; // oyun içi eşyalar bildirilmez
+    const mobile = /^(ios|android)$/i.test(x.platform);
     if (src.startsWith('epic') && !mobile) continue; // Epic PC yukarıda zaten var
     if (now - x.published > 7 * DAY) continue;
-    items.push({ id: x.id, source: x.source, title: x.title + (src.startsWith('epic') && mobile ? ` (${mobile})` : ''), url: x.url, published: new Date(x.published).toISOString(), note: x.note });
+    const suffix = x.platform && x.platform.toLowerCase() !== 'pc' && !x.title.toLowerCase().endsWith(`(${x.platform.toLowerCase()})`) ? ` (${x.platform})` : '';
+    items.push({ id: x.id, source: x.source, title: x.title + suffix, url: x.url, published: new Date(x.published).toISOString(), note: x.note });
   }
   items.sort((a, b) => b.published.localeCompare(a.published));
   return { items, allIds: entries.map((x) => x.id), debug: entries.slice(0, 2).map((x) => x.raw).join('\n-----\n').slice(0, 3000) };
@@ -183,21 +189,26 @@ async function getLegion() {
   const html = await res.text();
   const anchors = [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
 
+  // Tarih ("Free Oct 28th") bağlantıdan önce gelir; bağlantıya en yakın olanı al.
+  const dateBefore = (idx) => {
+    const text = stripTags(html.slice(Math.max(0, idx - 1200), idx));
+    let found = null;
+    for (const m of text.matchAll(/free\s+((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2})/gi)) found = parseMonthDay(m[1]) ?? found;
+    return found;
+  };
+
   const events = [];
-  let prevEnd = 0;
   for (const m of anchors) {
     const href = m[1].replace(/&amp;/g, '&');
-    const before = html.slice(prevEnd, m.index);
-    const after = html.slice(m.index + m[0].length, m.index + m[0].length + 1500);
-    prevEnd = m.index + m[0].length;
     const path = href.split(/[?#]/)[0];
     if (!/key-drop/i.test(href) || /\/game-key-drops\/?$/i.test(path)) continue;
     const url = href.startsWith('http') ? href : LEGION_BASE + (href.startsWith('/') ? '' : '/') + href;
-    if (events.some((e) => e.url === url)) continue;
-    const label = stripTags(m[2]);
+    const label = stripTags(m[2]).replace(/^[^\p{L}\p{N}]+/u, ''); // baştaki emojiyi at
     if (/\bended\b/i.test(label) || /ended/i.test(path)) continue; // bitmiş drop'lar bildirilmesin
+    const date = dateBefore(m.index);
+    const known = events.find((e) => e.url === url);
+    if (known) { known.date ??= date; continue; } // aynı bağlantı yan menüde de geçer; tarihi sonraki geçişten tamamla
     const title = label && !/^(learn more|read more|more|join|details?)$/i.test(label) ? label : titleFromSlug(href);
-    const date = parseMonthDay(stripTags(before).slice(-300)) ?? parseMonthDay(stripTags(after).slice(0, 300));
     events.push({ title, url, date });
   }
   const debug = `anchor sayısı: ${anchors.length}\nbağlantılar:\n${anchors.map((a) => a[1]).slice(0, 60).join('\n')}\n\nmetin:\n${stripTags(html).slice(0, 2500)}`;
@@ -328,6 +339,8 @@ const lines = [
   ...(loot
     ? (loot.items.length ? loot.items.map((i) => `- ${i.source}: [${i.title}](${i.url})${i.note ? ` — ${i.note}` : ''}`) : ['- Yeni bir şey görünmüyor.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('LootScraper:')) ?? 'bilinmeyen hata'}).`]),
+  '',
+  'Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)',
   '',
   '## Legion Gaming Community — Game Key Drops',
   '',
