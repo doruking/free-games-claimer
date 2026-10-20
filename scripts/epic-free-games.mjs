@@ -365,8 +365,6 @@ await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   fabReminder: previousFabReminder,
 }, null, 2) + '\n');
 await writeFile(`${OUT_DIR}/latest.md`, markdown);
-if (loot?.debug) await writeFile(`${OUT_DIR}/debug-lootscraper.txt`, loot.debug);
-if (legion?.debug || legionDebug) await writeFile(`${OUT_DIR}/debug-legion.txt`, legion?.debug ?? legionDebug);
 
 console.log(markdown);
 if (process.env.GITHUB_STEP_SUMMARY) await writeFile(process.env.GITHUB_STEP_SUMMARY, markdown, { flag: 'a' });
