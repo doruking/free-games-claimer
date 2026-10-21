@@ -114,7 +114,7 @@ async function getGog() {
 // ---------- LootScraper (Prime Gaming, Humble, App Store, Play Store, Fab, Epic mobil) ----------
 // Açık kaynak LootScraper projesinin herkese açık Atom yayını. Steam, GOG ve Epic PC zaten yukarıda doğrudan kontrol edilir.
 const LOOT_FEED = 'https://feed.eikowagenknecht.com/lootscraper.xml';
-const LOOT_SKIP_SOURCES = new Set(['steam', 'gog']);
+const LOOT_SKIP_SOURCES = new Set(['steam', 'gog', 'apple app store']); // App Store kullanıcı isteğiyle kapalı
 const DAY = 86400000;
 
 // Kategori etiketini okur, ör. <category term="platform:PC" scheme=".../platform" label="PC"/>
@@ -334,7 +334,7 @@ const lines = [
     ? (gog.items.length ? gog.items.map((i) => `- [${i.title}](${i.url})`) : ['- Şu an bedava oyun görünmüyor.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('GOG:')) ?? 'bilinmeyen hata'}).`]),
   '',
-  '## Diğer platformlar (Prime Gaming, Humble, App Store, Play Store, Fab, Epic mobil) — son 7 gün',
+  '## Diğer platformlar (Prime Gaming, Humble, Play Store, Fab, Epic mobil) — son 7 gün',
   '',
   ...(loot
     ? (loot.items.length ? loot.items.map((i) => `- ${i.source}: [${i.title}](${i.url})${i.note ? ` — ${i.note}` : ''}`) : ['- Yeni bir şey görünmüyor.'])
