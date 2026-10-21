@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 21 Ekim 2026 18:50 (İstanbul saati)
+Son kontrol: 21 Ekim 2026 22:22 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -18,7 +18,7 @@ Son kontrol: 21 Ekim 2026 18:50 (İstanbul saati)
 
 ## GOG — bedava (indirimle)
 
-- Veri alınamadı (GOG: GOG hata verdi: HTTP 500).
+- Şu an bedava oyun görünmüyor.
 
 ## Diğer platformlar (Prime Gaming, Humble, Play Store, Fab, Epic mobil) — son 7 gün
 
