@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 20 Ekim 2026 23:36 (İstanbul saati)
+Son kontrol: 21 Ekim 2026 16:34 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -22,6 +22,7 @@ Son kontrol: 20 Ekim 2026 23:36 (İstanbul saati)
 
 ## Diğer platformlar (Prime Gaming, Humble, App Store, Play Store, Fab, Epic mobil) — son 7 gün
 
+- Apple App Store: [Retro Widget 3: Classic Snake (iOS)](https://appraven.net/app/13652140)
 - Fab: [Modular Post Apocalyptic Desert Environment (Desert City,Desert Village)](https://www.fab.com/listings/be5ed72e-f542-41f4-b747-bdb343eef609) — son: 2026-11-03 14:59
 - Fab: [Celebrations All In One Bundle — VFX & Material for Christmas Halloween Holidays](https://www.fab.com/listings/7917aa8f-1e38-44cc-90d7-9c69da3c87b4) — son: 2026-11-03 14:59
 - Fab: [Armored Stone Golem - Dark Fantasy Boss](https://www.fab.com/listings/e40713f0-ebea-4f4d-ad9b-b577db4432d5) — son: 2026-11-03 14:59

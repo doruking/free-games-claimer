@@ -45,16 +45,11 @@
       "https://feed.eikowagenknecht.com/lootscraper/10808",
       "https://feed.eikowagenknecht.com/lootscraper/10809",
       "https://feed.eikowagenknecht.com/lootscraper/10861",
-      "https://feed.eikowagenknecht.com/lootscraper/10906",
-      "https://feed.eikowagenknecht.com/lootscraper/10907",
-      "https://feed.eikowagenknecht.com/lootscraper/10908",
       "https://feed.eikowagenknecht.com/lootscraper/10924",
       "https://feed.eikowagenknecht.com/lootscraper/10925",
       "https://feed.eikowagenknecht.com/lootscraper/10926",
       "https://feed.eikowagenknecht.com/lootscraper/10937",
       "https://feed.eikowagenknecht.com/lootscraper/10938",
-      "https://feed.eikowagenknecht.com/lootscraper/10945",
-      "https://feed.eikowagenknecht.com/lootscraper/10946",
       "https://feed.eikowagenknecht.com/lootscraper/10951",
       "https://feed.eikowagenknecht.com/lootscraper/10952",
       "https://feed.eikowagenknecht.com/lootscraper/10953",
@@ -74,9 +69,23 @@
       "https://feed.eikowagenknecht.com/lootscraper/10977",
       "https://feed.eikowagenknecht.com/lootscraper/10978",
       "https://feed.eikowagenknecht.com/lootscraper/10979",
-      "https://feed.eikowagenknecht.com/lootscraper/10980"
+      "https://feed.eikowagenknecht.com/lootscraper/10980",
+      "https://feed.eikowagenknecht.com/lootscraper/10981",
+      "https://feed.eikowagenknecht.com/lootscraper/10906",
+      "https://feed.eikowagenknecht.com/lootscraper/10907",
+      "https://feed.eikowagenknecht.com/lootscraper/10908",
+      "https://feed.eikowagenknecht.com/lootscraper/10945",
+      "https://feed.eikowagenknecht.com/lootscraper/10946"
     ],
     "items": [
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/10981",
+        "source": "Apple App Store",
+        "title": "Retro Widget 3: Classic Snake (iOS)",
+        "url": "https://appraven.net/app/13652140",
+        "published": "2026-10-21T12:00:16.636Z",
+        "note": ""
+      },
       {
         "id": "https://feed.eikowagenknecht.com/lootscraper/10978",
         "source": "Fab",
