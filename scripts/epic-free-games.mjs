@@ -90,7 +90,7 @@ const money = (v) => {
 };
 
 async function getGog() {
-  const url = `https://catalog.gog.com/v1/catalog?limit=48&page=1&order=desc%3Atrending&productType=in%3Agame%2Cpack&price=between%3A0%2C0&discounted=eq%3Atrue&countryCode=${COUNTRY}&locale=tr-TR&currencyCode=USD`;
+  const url = `https://catalog.gog.com/v1/catalog?limit=48&page=1&order=desc%3Atrending&productType=in%3Agame%2Cpack%2Cdlc&price=between%3A0%2C0&discounted=eq%3Atrue&countryCode=${COUNTRY}&locale=tr-TR&currencyCode=USD`;
   const res = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } });
   if (!res.ok) throw new Error(`GOG hata verdi: HTTP ${res.status}`);
   const data = await res.json();
@@ -150,12 +150,12 @@ async function getLoot() {
   for (const x of entries) {
     const src = x.source.toLowerCase();
     if (LOOT_SKIP_SOURCES.has(src)) continue; // Steam ve GOG yukarıda doğrudan kontrol ediliyor
-    if (x.type === 'loot') continue; // oyun içi eşyalar bildirilmez
     const mobile = /^(ios|android)$/i.test(x.platform);
     if (src.startsWith('epic') && !mobile) continue; // Epic PC yukarıda zaten var
     if (now - x.published > 7 * DAY) continue;
     const suffix = x.platform && x.platform.toLowerCase() !== 'pc' && !x.title.toLowerCase().endsWith(`(${x.platform.toLowerCase()})`) ? ` (${x.platform})` : '';
-    items.push({ id: x.id, source: x.source, title: x.title + suffix, url: x.url, published: new Date(x.published).toISOString(), note: x.note });
+    const dlc = x.type === 'loot' ? ' [DLC/oyun içi içerik]' : '';
+    items.push({ id: x.id, source: x.source, title: x.title + suffix + dlc, url: x.url, published: new Date(x.published).toISOString(), note: x.note });
   }
   items.sort((a, b) => b.published.localeCompare(a.published));
   return { items, allIds: entries.map((x) => x.id), debug: entries.slice(0, 2).map((x) => x.raw).join('\n-----\n').slice(0, 3000) };
