@@ -90,14 +90,20 @@ const money = (v) => {
 };
 
 async function getGog() {
-  const url = `https://catalog.gog.com/v1/catalog?limit=48&page=1&order=desc%3Atrending&productType=in%3Agame%2Cpack%2Cdlc&price=between%3A0%2C0&discounted=eq%3Atrue&countryCode=${COUNTRY}&locale=tr-TR&currencyCode=USD`;
+  const url = `https://catalog.gog.com/v1/catalog?limit=48&page=1&order=desc%3Atrending&productType=in%3Agame%2Cpack&price=between%3A0%2C0&discounted=eq%3Atrue&countryCode=${COUNTRY}&locale=tr-TR&currencyCode=USD`;
   const res = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } });
   if (!res.ok) throw new Error(`GOG hata verdi: HTTP ${res.status}`);
   const data = await res.json();
   if (!Array.isArray(data?.products)) throw new Error('GOG yanıtı beklenen biçimde değil (products yok).');
 
+  // DLC'ler ayrı sorguyla alınır; bu sorgu başarısız olsa bile oyun listesi etkilenmez.
+  const dlcProducts = [];
+  try {
+    const r2 = await fetch(url.replace('in%3Agame%2Cpack', 'in%3Adlc'), { headers: { 'user-agent': UA, accept: 'application/json' } });
+    if (r2.ok) dlcProducts.push(...((await r2.json())?.products ?? []));
+  } catch { /* yok say */ }
   const items = [];
-  for (const p of data.products) {
+  for (const p of [...data.products, ...dlcProducts.map((d) => ({ ...d, title: `${d.title} [DLC]` }))]) {
     const final = money(p.price?.finalMoney?.amount ?? p.price?.final);
     const base = money(p.price?.baseMoney?.amount ?? p.price?.base);
     if (!p.id || !p.title || final !== 0 || !(base > 0)) continue; // sadece indirimle bedava olanlar
