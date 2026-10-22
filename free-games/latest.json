@@ -43,7 +43,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/10926",
       "https://feed.eikowagenknecht.com/lootscraper/10937",
       "https://feed.eikowagenknecht.com/lootscraper/10938",
-      "https://feed.eikowagenknecht.com/lootscraper/10951",
       "https://feed.eikowagenknecht.com/lootscraper/10952",
       "https://feed.eikowagenknecht.com/lootscraper/10953",
       "https://feed.eikowagenknecht.com/lootscraper/10954",
@@ -64,6 +63,10 @@
       "https://feed.eikowagenknecht.com/lootscraper/10983",
       "https://feed.eikowagenknecht.com/lootscraper/10984",
       "https://feed.eikowagenknecht.com/lootscraper/10985",
+      "https://feed.eikowagenknecht.com/lootscraper/10986",
+      "https://feed.eikowagenknecht.com/lootscraper/10987",
+      "https://feed.eikowagenknecht.com/lootscraper/10988",
+      "https://feed.eikowagenknecht.com/lootscraper/10951",
       "https://feed.eikowagenknecht.com/lootscraper/10967",
       "https://feed.eikowagenknecht.com/lootscraper/10968",
       "https://feed.eikowagenknecht.com/lootscraper/10969",
@@ -75,6 +78,22 @@
       "https://feed.eikowagenknecht.com/lootscraper/10946"
     ],
     "items": [
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/10988",
+        "source": "Amazon Prime",
+        "title": "Ad Infinitum",
+        "url": "https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457?ingress=amzn&ref_=SM_AdInfinitum_S01_FGWP_CRWN",
+        "published": "2026-10-22T18:00:58.244Z",
+        "note": "son: 2026-11-25 00:00"
+      },
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/10987",
+        "source": "Amazon Prime",
+        "title": "Time Travel: Escape Room Game",
+        "url": "https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5?ingress=amzn&ref_=SM_TimeTravelEscapeRoomGame_S01_FGWP_CRWN",
+        "published": "2026-10-22T18:00:55.260Z",
+        "note": "son: 2026-11-25 00:00"
+      },
       {
         "id": "https://feed.eikowagenknecht.com/lootscraper/10985",
         "source": "Epic Games",
@@ -114,22 +133,6 @@
         "url": "https://www.fab.com/listings/e40713f0-ebea-4f4d-ad9b-b577db4432d5",
         "published": "2026-10-20T14:15:09.164Z",
         "note": "son: 2026-11-03 14:59"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/10972",
-        "source": "Amazon Prime",
-        "title": "Vampire: The Masquerade: Swansong",
-        "url": "https://luna.amazon.com/claims/vampire-the-masquerade-swansong-epic/dp/amzn1.pg.item.7885fee3-7dda-40c5-8642-596bb1f4a9b3?ingress=amzn&ref_=SM_VampireTheMasqueradeSwansong_S01_FGWP_CRWN",
-        "published": "2026-10-15T18:00:50.528Z",
-        "note": "son: 2026-11-18 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/10971",
-        "source": "Amazon Prime",
-        "title": "Caravan SandWitch",
-        "url": "https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a?ingress=amzn&ref_=SM_CaravanSandWitch_S01_FGWP_CRWN",
-        "published": "2026-10-15T18:00:48.053Z",
-        "note": "son: 2026-12-16 00:00"
       }
     ]
   },
