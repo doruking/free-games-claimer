@@ -1,34 +1,27 @@
 {
   "epic": {
-    "key": "6a846880836044a2adad614ac771f487@2026-10-22T15:00:00.000Z|db1202a30c5541dd99cdf54c918a9348@2026-10-22T15:00:00.000Z",
+    "key": "06190191cede42afb633fe89ef08c27e@2026-10-29T15:00:00.000Z|6aab3ddef4f84fbc9dd81c60f9d8549c@2026-10-29T15:00:00.000Z",
     "current": [
-      {
-        "id": "db1202a30c5541dd99cdf54c918a9348",
-        "title": "Agent A: A puzzle in disguise",
-        "url": "https://store.epicgames.com/tr/p/agent-a-a-puzzle-in-disguise-42fe5f",
-        "endsAt": "2026-10-22T15:00:00.000Z"
-      },
-      {
-        "id": "6a846880836044a2adad614ac771f487",
-        "title": "Bad Cheese",
-        "url": "https://store.epicgames.com/tr/p/bad-cheese-4256d9",
-        "endsAt": "2026-10-22T15:00:00.000Z"
-      }
-    ],
-    "upcoming": [
       {
         "id": "06190191cede42afb633fe89ef08c27e",
         "title": "Home - A Unique Horror Adventure",
         "url": "https://store.epicgames.com/tr/p/home-19212a",
-        "startsAt": "2026-10-22T15:00:00.000Z",
         "endsAt": "2026-10-29T15:00:00.000Z"
       },
       {
         "id": "6aab3ddef4f84fbc9dd81c60f9d8549c",
         "title": "Sker Ritual",
         "url": "https://store.epicgames.com/tr/p/sker-ritual-aac702",
-        "startsAt": "2026-10-22T15:00:00.000Z",
         "endsAt": "2026-10-29T15:00:00.000Z"
+      }
+    ],
+    "upcoming": [
+      {
+        "id": "4e469c7d8bbf49bcabc2c07127d3d946",
+        "title": "Sorry We're Closed",
+        "url": "https://store.epicgames.com/tr/p/sorry-were-closed-724c86",
+        "startsAt": "2026-10-29T15:00:00.000Z",
+        "endsAt": "2026-11-05T16:00:00.000Z"
       }
     ]
   },
@@ -56,10 +49,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/10954",
       "https://feed.eikowagenknecht.com/lootscraper/10961",
       "https://feed.eikowagenknecht.com/lootscraper/10962",
-      "https://feed.eikowagenknecht.com/lootscraper/10967",
-      "https://feed.eikowagenknecht.com/lootscraper/10968",
-      "https://feed.eikowagenknecht.com/lootscraper/10969",
-      "https://feed.eikowagenknecht.com/lootscraper/10970",
       "https://feed.eikowagenknecht.com/lootscraper/10971",
       "https://feed.eikowagenknecht.com/lootscraper/10972",
       "https://feed.eikowagenknecht.com/lootscraper/10973",
@@ -71,6 +60,14 @@
       "https://feed.eikowagenknecht.com/lootscraper/10979",
       "https://feed.eikowagenknecht.com/lootscraper/10980",
       "https://feed.eikowagenknecht.com/lootscraper/10981",
+      "https://feed.eikowagenknecht.com/lootscraper/10982",
+      "https://feed.eikowagenknecht.com/lootscraper/10983",
+      "https://feed.eikowagenknecht.com/lootscraper/10984",
+      "https://feed.eikowagenknecht.com/lootscraper/10985",
+      "https://feed.eikowagenknecht.com/lootscraper/10967",
+      "https://feed.eikowagenknecht.com/lootscraper/10968",
+      "https://feed.eikowagenknecht.com/lootscraper/10969",
+      "https://feed.eikowagenknecht.com/lootscraper/10970",
       "https://feed.eikowagenknecht.com/lootscraper/10906",
       "https://feed.eikowagenknecht.com/lootscraper/10907",
       "https://feed.eikowagenknecht.com/lootscraper/10908",
@@ -78,6 +75,22 @@
       "https://feed.eikowagenknecht.com/lootscraper/10946"
     ],
     "items": [
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/10985",
+        "source": "Epic Games",
+        "title": "Home: A Unique Horror Adventure (Android)",
+        "url": "https://store.epicgames.com/en-US/p/home-android-9ba07f",
+        "published": "2026-10-22T15:35:06.139Z",
+        "note": "son: 2026-10-29 15:00"
+      },
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/10984",
+        "source": "Epic Games",
+        "title": "Home: A Unique Horror Adventure (iOS)",
+        "url": "https://store.epicgames.com/en-US/p/home-ios-69cfcf",
+        "published": "2026-10-22T15:15:13.663Z",
+        "note": "son: 2026-10-29 15:00"
+      },
       {
         "id": "https://feed.eikowagenknecht.com/lootscraper/10978",
         "source": "Fab",
@@ -117,22 +130,6 @@
         "url": "https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a?ingress=amzn&ref_=SM_CaravanSandWitch_S01_FGWP_CRWN",
         "published": "2026-10-15T18:00:48.053Z",
         "note": "son: 2026-12-16 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/10970",
-        "source": "Epic Games",
-        "title": "Agent A: A puzzle in disguise (iOS)",
-        "url": "https://store.epicgames.com/en-US/p/agent-a-a-puzzle-in-disguise-ios-d7a459",
-        "published": "2026-10-15T15:35:10.610Z",
-        "note": "son: 2026-10-22 15:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/10969",
-        "source": "Epic Games",
-        "title": "Agent A: A puzzle in disguise (Android)",
-        "url": "https://store.epicgames.com/en-US/p/agent-a-a-puzzle-in-disguise-android-897342",
-        "published": "2026-10-15T15:15:09.240Z",
-        "note": "son: 2026-10-22 15:00"
       }
     ]
   },
