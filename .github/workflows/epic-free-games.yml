@@ -2,10 +2,9 @@ name: Ücretsiz Oyunlar (Epic ve Fab)
 
 on:
   schedule:
-    # Epic yeni oyunları 11:00 ET'de, Fab içerikleri 9:00 ET'de açar (yaz/kış saati için iki saat denenir).
-    - cron: '20 15,16 * * *'
-    # Kaçırılanlar için her sabah bir kontrol daha.
-    - cron: '0 8 * * *'
+    # Her 30 dakikada bir; gece 23:00-05:00 (İstanbul) arası çalışmaz.
+    # Cron UTC'dir: 02:00-19:30 UTC = 05:00-22:30 İstanbul. (Yoğun saatlerde GitHub çalıştırmaları geciktirebilir.)
+    - cron: '0,30 2-19 * * *'
   workflow_dispatch:
     inputs:
       test:

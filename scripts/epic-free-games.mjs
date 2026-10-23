@@ -370,7 +370,10 @@ await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   legion: legion ? { events: legion.events, reminded: [...previousLegionReminded] } : previous.legion ?? null,
   fabReminder: previousFabReminder,
 }, null, 2) + '\n');
-await writeFile(`${OUT_DIR}/latest.md`, markdown);
+// Sadece "Son kontrol" saati değiştiyse dosyayı yazma: 5 dakikada bir çalışırken depoya gereksiz commit düşmesin.
+const stripStamp = (t) => t.replace(/^Son kontrol:.*$/m, '');
+const existingMd = await readFile(`${OUT_DIR}/latest.md`, 'utf8').catch(() => '');
+if (stripStamp(existingMd) !== stripStamp(markdown)) await writeFile(`${OUT_DIR}/latest.md`, markdown);
 
 console.log(markdown);
 if (process.env.GITHUB_STEP_SUMMARY) await writeFile(process.env.GITHUB_STEP_SUMMARY, markdown, { flag: 'a' });
