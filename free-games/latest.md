@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 23 Ekim 2026 16:11 (İstanbul saati)
+Son kontrol: 27 Ekim 2026 21:51 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -25,9 +25,6 @@ Son kontrol: 23 Ekim 2026 16:11 (İstanbul saati)
 - Amazon Prime: [Time Travel: Escape Room Game](https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5?ingress=amzn&ref_=SM_TimeTravelEscapeRoomGame_S01_FGWP_CRWN) — son: 2026-11-25 00:00
 - Epic Games: [Home: A Unique Horror Adventure (Android)](https://store.epicgames.com/en-US/p/home-android-9ba07f) — son: 2026-10-29 15:00
 - Epic Games: [Home: A Unique Horror Adventure (iOS)](https://store.epicgames.com/en-US/p/home-ios-69cfcf) — son: 2026-10-29 15:00
-- Fab: [Modular Post Apocalyptic Desert Environment (Desert City,Desert Village)](https://www.fab.com/listings/be5ed72e-f542-41f4-b747-bdb343eef609) — son: 2026-11-03 14:59
-- Fab: [Celebrations All In One Bundle — VFX & Material for Christmas Halloween Holidays](https://www.fab.com/listings/7917aa8f-1e38-44cc-90d7-9c69da3c87b4) — son: 2026-11-03 14:59
-- Fab: [Armored Stone Golem - Dark Fantasy Boss](https://www.fab.com/listings/e40713f0-ebea-4f4d-ad9b-b577db4432d5) — son: 2026-11-03 14:59
 
 Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
