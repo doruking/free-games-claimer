@@ -35,21 +35,12 @@
   },
   "lootscraper": {
     "seen": [
-      "https://feed.eikowagenknecht.com/lootscraper/10808",
-      "https://feed.eikowagenknecht.com/lootscraper/10809",
-      "https://feed.eikowagenknecht.com/lootscraper/10861",
-      "https://feed.eikowagenknecht.com/lootscraper/10924",
-      "https://feed.eikowagenknecht.com/lootscraper/10925",
-      "https://feed.eikowagenknecht.com/lootscraper/10926",
       "https://feed.eikowagenknecht.com/lootscraper/10937",
       "https://feed.eikowagenknecht.com/lootscraper/10938",
       "https://feed.eikowagenknecht.com/lootscraper/10961",
       "https://feed.eikowagenknecht.com/lootscraper/10962",
       "https://feed.eikowagenknecht.com/lootscraper/10971",
       "https://feed.eikowagenknecht.com/lootscraper/10972",
-      "https://feed.eikowagenknecht.com/lootscraper/10975",
-      "https://feed.eikowagenknecht.com/lootscraper/10976",
-      "https://feed.eikowagenknecht.com/lootscraper/10977",
       "https://feed.eikowagenknecht.com/lootscraper/10978",
       "https://feed.eikowagenknecht.com/lootscraper/10979",
       "https://feed.eikowagenknecht.com/lootscraper/10980",
@@ -60,6 +51,15 @@
       "https://feed.eikowagenknecht.com/lootscraper/10986",
       "https://feed.eikowagenknecht.com/lootscraper/10987",
       "https://feed.eikowagenknecht.com/lootscraper/10988",
+      "https://feed.eikowagenknecht.com/lootscraper/10808",
+      "https://feed.eikowagenknecht.com/lootscraper/10809",
+      "https://feed.eikowagenknecht.com/lootscraper/10861",
+      "https://feed.eikowagenknecht.com/lootscraper/10924",
+      "https://feed.eikowagenknecht.com/lootscraper/10925",
+      "https://feed.eikowagenknecht.com/lootscraper/10926",
+      "https://feed.eikowagenknecht.com/lootscraper/10975",
+      "https://feed.eikowagenknecht.com/lootscraper/10976",
+      "https://feed.eikowagenknecht.com/lootscraper/10977",
       "https://feed.eikowagenknecht.com/lootscraper/10989",
       "https://feed.eikowagenknecht.com/lootscraper/10990",
       "https://feed.eikowagenknecht.com/lootscraper/10991",
@@ -134,7 +134,9 @@
         "date": "2026-11-11"
       }
     ],
-    "reminded": []
+    "reminded": [
+      "https://gaming.lenovo.com/doom-key-drops@2026-10-28"
+    ]
   },
   "fabReminder": "2026-10-20"
 }
