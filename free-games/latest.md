@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 28 Ekim 2026 23:02 (İstanbul saati)
+Son kontrol: 29 Ekim 2026 17:56 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -9,6 +9,7 @@ Son kontrol: 28 Ekim 2026 23:02 (İstanbul saati)
 
 ## Epic Games Store — sıradaki
 
+- Idle Champions of the Forgotten Realms — 5 Kasım 2026 19:00 tarihinde başlıyor
 - Sorry We're Closed — 29 Ekim 2026 18:00 tarihinde başlıyor
 
 ## Steam — kalıcı ücretsiz (%100 indirim)
@@ -30,7 +31,6 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
 ## Legion Gaming Community — Game Key Drops
 
-- [DOOM Key Drops](https://gaming.lenovo.com/doom-key-drops) — tarih okunamadı
 - [Mail Mole](https://gaming.lenovo.com/game-key-drops/post/coming-soon-mail-mole---game-key-drops-enBSTs38T53vF9w) — 2026-11-11
 
 ## Fab
