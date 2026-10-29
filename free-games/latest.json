@@ -61,6 +61,8 @@
       "https://feed.eikowagenknecht.com/lootscraper/11000",
       "https://feed.eikowagenknecht.com/lootscraper/11001",
       "https://feed.eikowagenknecht.com/lootscraper/11002",
+      "https://feed.eikowagenknecht.com/lootscraper/11003",
+      "https://feed.eikowagenknecht.com/lootscraper/11004",
       "https://feed.eikowagenknecht.com/lootscraper/10952",
       "https://feed.eikowagenknecht.com/lootscraper/10975",
       "https://feed.eikowagenknecht.com/lootscraper/10982",
@@ -94,6 +96,22 @@
     ],
     "items": [
       {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11004",
+        "source": "Amazon Prime",
+        "title": "Trash Goblin",
+        "url": "https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn&ref_=SM_TrashGoblin_S01_FGWP_CRWN",
+        "published": "2026-10-29T18:00:41.455Z",
+        "note": "son: 2026-12-02 00:00"
+      },
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11003",
+        "source": "Amazon Prime",
+        "title": "Kiborg",
+        "url": "https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn&ref_=SM_Kiborg_S01_FGWP_CRWN",
+        "published": "2026-10-29T18:00:39.114Z",
+        "note": "son: 2026-12-02 00:00"
+      },
+      {
         "id": "https://feed.eikowagenknecht.com/lootscraper/11001",
         "source": "Epic Games",
         "title": "Galaxy Kart (iOS)",
@@ -108,22 +126,6 @@
         "url": "https://store.epicgames.com/en-US/p/galaxy-kart-android-135821",
         "published": "2026-10-29T15:15:09.926Z",
         "note": "son: 2026-11-05 16:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/10988",
-        "source": "Amazon Prime",
-        "title": "Ad Infinitum",
-        "url": "https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457?ingress=amzn&ref_=SM_AdInfinitum_S01_FGWP_CRWN",
-        "published": "2026-10-22T18:00:58.244Z",
-        "note": "son: 2026-11-25 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/10987",
-        "source": "Amazon Prime",
-        "title": "Time Travel: Escape Room Game",
-        "url": "https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5?ingress=amzn&ref_=SM_TimeTravelEscapeRoomGame_S01_FGWP_CRWN",
-        "published": "2026-10-22T18:00:55.260Z",
-        "note": "son: 2026-11-25 00:00"
       }
     ]
   },
