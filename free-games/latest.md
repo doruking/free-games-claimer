@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 29 Ekim 2026 23:04 (İstanbul saati)
+Son kontrol: 2 Kasım 2026 22:04 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -13,7 +13,7 @@ Son kontrol: 29 Ekim 2026 23:04 (İstanbul saati)
 
 ## Steam — kalıcı ücretsiz (%100 indirim)
 
-- Veri alınamadı (Steam: Steam sonuçları ayrıştırılamadı.).
+- Şu an kalıcı ücretsiz oyun görünmüyor.
 
 ## GOG — bedava (indirimle)
 
@@ -31,6 +31,7 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 ## Legion Gaming Community — Game Key Drops
 
 - [Mail Mole Key Drops](https://gaming.lenovo.com/mail-mole-key-drops) — 2026-11-11
+- [Fallout New Vegas](https://gaming.lenovo.com/fallout-new-vegas-key-drops) — 2026-12-02
 
 ## Fab
 
