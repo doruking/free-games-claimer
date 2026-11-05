@@ -124,22 +124,6 @@
         "url": "https://www.fab.com/listings/1898b906-d481-4a05-8515-f2b4d3b28378",
         "published": "2026-11-03T15:15:12.871Z",
         "note": ""
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11004",
-        "source": "Amazon Prime",
-        "title": "Trash Goblin",
-        "url": "https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn&ref_=SM_TrashGoblin_S01_FGWP_CRWN",
-        "published": "2026-10-29T18:00:41.455Z",
-        "note": "son: 2026-12-02 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11003",
-        "source": "Amazon Prime",
-        "title": "Kiborg",
-        "url": "https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn&ref_=SM_Kiborg_S01_FGWP_CRWN",
-        "published": "2026-10-29T18:00:39.114Z",
-        "note": "son: 2026-12-02 00:00"
       }
     ]
   },
