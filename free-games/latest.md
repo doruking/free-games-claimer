@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 6 Kasım 2026 01:45 (İstanbul saati)
+Son kontrol: 6 Kasım 2026 11:52 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -21,6 +21,10 @@ Son kontrol: 6 Kasım 2026 01:45 (İstanbul saati)
 
 ## Diğer platformlar (Prime Gaming, Humble, Play Store, Fab, Epic mobil) — son 7 gün
 
+- Amazon Prime: [WRC Generations](https://luna.amazon.com/claims/wrc-generations-epic/dp/amzn1.pg.item.59a0703f-be28-476e-9160-8e56e257dee5?g=s&ingress=amzn&ref_=SM_WRCGenerations_S01_FGWP_CRWN) — son: 2026-12-09 00:00
+- Amazon Prime: [Squirrel with a Gun](https://luna.amazon.com/claims/squirrel-with-a-gun-aga/dp/amzn1.pg.item.70eff815-88f4-47f9-83e0-8a8d2837c7ad?g=s&ingress=amzn&ref_=SM_SquirrelwithaGun_S01_FGWP_CRWN) — son: 2026-12-09 00:00
+- Epic Games: [Chants of Sennaar (iOS)](https://store.epicgames.com/en-US/p/chants-of-sennaar-ios-6bd071) — son: 2026-11-12 16:00
+- Epic Games: [Chants of Sennaar (Android)](https://store.epicgames.com/en-US/p/chants-of-sennaar-android-681b80) — son: 2026-11-12 16:00
 - Fab: [Underground Tunnel](https://www.fab.com/listings/6c9e3f18-0b5e-4240-9aea-eecb515175c1)
 - Fab: [SciFi Beast06 Bull](https://www.fab.com/listings/126120a3-996e-4dc3-94f1-6550f0adac03)
 - Fab: [3D Platformer Game Bundle - Rail Grinding / Ziplines / Homing Attack & Dash Pads](https://www.fab.com/listings/1898b906-d481-4a05-8515-f2b4d3b28378)
