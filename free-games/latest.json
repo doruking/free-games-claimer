@@ -53,7 +53,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/11011",
       "https://feed.eikowagenknecht.com/lootscraper/11012",
       "https://feed.eikowagenknecht.com/lootscraper/11013",
-      "https://feed.eikowagenknecht.com/lootscraper/11014",
       "https://feed.eikowagenknecht.com/lootscraper/11017",
       "https://feed.eikowagenknecht.com/lootscraper/11018",
       "https://feed.eikowagenknecht.com/lootscraper/11019",
@@ -65,6 +64,8 @@
       "https://feed.eikowagenknecht.com/lootscraper/11025",
       "https://feed.eikowagenknecht.com/lootscraper/11026",
       "https://feed.eikowagenknecht.com/lootscraper/11027",
+      "https://feed.eikowagenknecht.com/lootscraper/11028",
+      "https://feed.eikowagenknecht.com/lootscraper/11014",
       "https://feed.eikowagenknecht.com/lootscraper/10943",
       "https://feed.eikowagenknecht.com/lootscraper/11007",
       "https://feed.eikowagenknecht.com/lootscraper/11006",
@@ -150,30 +151,6 @@
         "url": "https://store.epicgames.com/en-US/p/chants-of-sennaar-android-681b80",
         "published": "2026-11-06T06:43:33.958Z",
         "note": "son: 2026-11-12 16:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11008",
-        "source": "Fab",
-        "title": "Underground Tunnel",
-        "url": "https://www.fab.com/listings/6c9e3f18-0b5e-4240-9aea-eecb515175c1",
-        "published": "2026-11-03T15:15:12.871Z",
-        "note": ""
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11009",
-        "source": "Fab",
-        "title": "SciFi Beast06 Bull",
-        "url": "https://www.fab.com/listings/126120a3-996e-4dc3-94f1-6550f0adac03",
-        "published": "2026-11-03T15:15:12.871Z",
-        "note": ""
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11010",
-        "source": "Fab",
-        "title": "3D Platformer Game Bundle - Rail Grinding / Ziplines / Homing Attack & Dash Pads",
-        "url": "https://www.fab.com/listings/1898b906-d481-4a05-8515-f2b4d3b28378",
-        "published": "2026-11-03T15:15:12.871Z",
-        "note": ""
       }
     ]
   },
