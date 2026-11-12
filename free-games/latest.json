@@ -1,27 +1,28 @@
 {
   "epic": {
-    "key": "3be0a0d8479946d78f60d90c9442a0b4@2026-11-12T16:00:00.000Z|a9748abde1c94b66aae5250bb9fc5503@2026-11-12T16:00:00.000Z",
+    "key": "9975548b6d404a94b8a9bdb34cad49e9@2026-11-19T16:00:00.000Z",
     "current": [
-      {
-        "id": "3be0a0d8479946d78f60d90c9442a0b4",
-        "title": "Flotsam",
-        "url": "https://store.epicgames.com/tr/p/flotsam-266287",
-        "endsAt": "2026-11-12T16:00:00.000Z"
-      },
-      {
-        "id": "a9748abde1c94b66aae5250bb9fc5503",
-        "title": "Idle Champions of the Forgotten Realms",
-        "url": "https://store.epicgames.com/tr/p/idle-champions-of-the-forgotten-realms",
-        "endsAt": "2026-11-12T16:00:00.000Z"
-      }
-    ],
-    "upcoming": [
       {
         "id": "9975548b6d404a94b8a9bdb34cad49e9",
         "title": "Knightica",
         "url": "https://store.epicgames.com/tr/p/knightica-3be45c",
-        "startsAt": "2026-11-12T16:00:00.000Z",
         "endsAt": "2026-11-19T16:00:00.000Z"
+      }
+    ],
+    "upcoming": [
+      {
+        "id": "d37f3694e7a04edb8347f3cb6320f9d3",
+        "title": "Alien: Isolation",
+        "url": "https://store.epicgames.com/tr/p/alien-isolation",
+        "startsAt": "2026-11-19T16:00:00.000Z",
+        "endsAt": "2026-11-26T16:00:00.000Z"
+      },
+      {
+        "id": "1f9a12b06b4f437790b6913ad136a08c",
+        "title": "Mark of the Deep",
+        "url": "https://store.epicgames.com/tr/p/mark-of-the-deep-f7dc08",
+        "startsAt": "2026-11-19T16:00:00.000Z",
+        "endsAt": "2026-11-26T16:00:00.000Z"
       }
     ]
   },
@@ -37,7 +38,6 @@
     "seen": [
       "https://feed.eikowagenknecht.com/lootscraper/10855",
       "https://feed.eikowagenknecht.com/lootscraper/10961",
-      "https://feed.eikowagenknecht.com/lootscraper/10962",
       "https://feed.eikowagenknecht.com/lootscraper/10971",
       "https://feed.eikowagenknecht.com/lootscraper/10972",
       "https://feed.eikowagenknecht.com/lootscraper/10976",
@@ -52,11 +52,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/11010",
       "https://feed.eikowagenknecht.com/lootscraper/11011",
       "https://feed.eikowagenknecht.com/lootscraper/11012",
-      "https://feed.eikowagenknecht.com/lootscraper/11013",
-      "https://feed.eikowagenknecht.com/lootscraper/11017",
-      "https://feed.eikowagenknecht.com/lootscraper/11018",
-      "https://feed.eikowagenknecht.com/lootscraper/11019",
-      "https://feed.eikowagenknecht.com/lootscraper/11020",
       "https://feed.eikowagenknecht.com/lootscraper/11021",
       "https://feed.eikowagenknecht.com/lootscraper/11022",
       "https://feed.eikowagenknecht.com/lootscraper/11023",
@@ -65,6 +60,17 @@
       "https://feed.eikowagenknecht.com/lootscraper/11026",
       "https://feed.eikowagenknecht.com/lootscraper/11027",
       "https://feed.eikowagenknecht.com/lootscraper/11028",
+      "https://feed.eikowagenknecht.com/lootscraper/11029",
+      "https://feed.eikowagenknecht.com/lootscraper/11030",
+      "https://feed.eikowagenknecht.com/lootscraper/11031",
+      "https://feed.eikowagenknecht.com/lootscraper/11032",
+      "https://feed.eikowagenknecht.com/lootscraper/11033",
+      "https://feed.eikowagenknecht.com/lootscraper/10962",
+      "https://feed.eikowagenknecht.com/lootscraper/11013",
+      "https://feed.eikowagenknecht.com/lootscraper/11017",
+      "https://feed.eikowagenknecht.com/lootscraper/11018",
+      "https://feed.eikowagenknecht.com/lootscraper/11019",
+      "https://feed.eikowagenknecht.com/lootscraper/11020",
       "https://feed.eikowagenknecht.com/lootscraper/11014",
       "https://feed.eikowagenknecht.com/lootscraper/10943",
       "https://feed.eikowagenknecht.com/lootscraper/11007",
@@ -121,6 +127,22 @@
     ],
     "items": [
       {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11033",
+        "source": "Epic Games",
+        "title": "Knightica (iOS)",
+        "url": "https://store.epicgames.com/en-US/p/knightica-ios-b4550a",
+        "published": "2026-11-12T16:35:12.446Z",
+        "note": "son: 2026-11-19 16:00"
+      },
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11032",
+        "source": "Epic Games",
+        "title": "Knightica (Android)",
+        "url": "https://store.epicgames.com/en-US/p/knightica-android-ad8285",
+        "published": "2026-11-12T16:15:08.602Z",
+        "note": "son: 2026-11-19 16:00"
+      },
+      {
         "id": "https://feed.eikowagenknecht.com/lootscraper/11022",
         "source": "Amazon Prime",
         "title": "WRC Generations",
@@ -135,22 +157,6 @@
         "url": "https://luna.amazon.com/claims/squirrel-with-a-gun-aga/dp/amzn1.pg.item.70eff815-88f4-47f9-83e0-8a8d2837c7ad?g=s&ingress=amzn&ref_=SM_SquirrelwithaGun_S01_FGWP_CRWN",
         "published": "2026-11-06T06:45:34.378Z",
         "note": "son: 2026-12-09 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11020",
-        "source": "Epic Games",
-        "title": "Chants of Sennaar (iOS)",
-        "url": "https://store.epicgames.com/en-US/p/chants-of-sennaar-ios-6bd071",
-        "published": "2026-11-06T06:44:12.190Z",
-        "note": "son: 2026-11-12 16:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11019",
-        "source": "Epic Games",
-        "title": "Chants of Sennaar (Android)",
-        "url": "https://store.epicgames.com/en-US/p/chants-of-sennaar-android-681b80",
-        "published": "2026-11-06T06:43:33.958Z",
-        "note": "son: 2026-11-12 16:00"
       }
     ]
   },
