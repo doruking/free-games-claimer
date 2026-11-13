@@ -159,22 +159,6 @@
         "url": "https://store.epicgames.com/en-US/p/knightica-android-ad8285",
         "published": "2026-11-12T16:15:08.602Z",
         "note": "son: 2026-11-19 16:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11022",
-        "source": "Amazon Prime",
-        "title": "WRC Generations",
-        "url": "https://luna.amazon.com/claims/wrc-generations-epic/dp/amzn1.pg.item.59a0703f-be28-476e-9160-8e56e257dee5?g=s&ingress=amzn&ref_=SM_WRCGenerations_S01_FGWP_CRWN",
-        "published": "2026-11-06T06:45:37.417Z",
-        "note": "son: 2026-12-09 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11021",
-        "source": "Amazon Prime",
-        "title": "Squirrel with a Gun",
-        "url": "https://luna.amazon.com/claims/squirrel-with-a-gun-aga/dp/amzn1.pg.item.70eff815-88f4-47f9-83e0-8a8d2837c7ad?g=s&ingress=amzn&ref_=SM_SquirrelwithaGun_S01_FGWP_CRWN",
-        "published": "2026-11-06T06:45:34.378Z",
-        "note": "son: 2026-12-09 00:00"
       }
     ]
   },

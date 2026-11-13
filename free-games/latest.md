@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 13 Kasım 2026 02:07 (İstanbul saati)
+Son kontrol: 13 Kasım 2026 11:59 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -25,8 +25,6 @@ Son kontrol: 13 Kasım 2026 02:07 (İstanbul saati)
 - Amazon Prime: [Jurassic World Evolution 2](https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5?ingress=amzn&ref_=SM_JurassicWorldEvolution2_S01_FGWP_CRWN) — son: 2026-12-16 00:00
 - Epic Games: [Knightica (iOS)](https://store.epicgames.com/en-US/p/knightica-ios-b4550a) — son: 2026-11-19 16:00
 - Epic Games: [Knightica (Android)](https://store.epicgames.com/en-US/p/knightica-android-ad8285) — son: 2026-11-19 16:00
-- Amazon Prime: [WRC Generations](https://luna.amazon.com/claims/wrc-generations-epic/dp/amzn1.pg.item.59a0703f-be28-476e-9160-8e56e257dee5?g=s&ingress=amzn&ref_=SM_WRCGenerations_S01_FGWP_CRWN) — son: 2026-12-09 00:00
-- Amazon Prime: [Squirrel with a Gun](https://luna.amazon.com/claims/squirrel-with-a-gun-aga/dp/amzn1.pg.item.70eff815-88f4-47f9-83e0-8a8d2837c7ad?g=s&ingress=amzn&ref_=SM_SquirrelwithaGun_S01_FGWP_CRWN) — son: 2026-12-09 00:00
 
 Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
