@@ -40,7 +40,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/10961",
       "https://feed.eikowagenknecht.com/lootscraper/10971",
       "https://feed.eikowagenknecht.com/lootscraper/10972",
-      "https://feed.eikowagenknecht.com/lootscraper/10976",
       "https://feed.eikowagenknecht.com/lootscraper/10987",
       "https://feed.eikowagenknecht.com/lootscraper/10988",
       "https://feed.eikowagenknecht.com/lootscraper/10997",
@@ -49,15 +48,12 @@
       "https://feed.eikowagenknecht.com/lootscraper/11008",
       "https://feed.eikowagenknecht.com/lootscraper/11009",
       "https://feed.eikowagenknecht.com/lootscraper/11010",
-      "https://feed.eikowagenknecht.com/lootscraper/11011",
-      "https://feed.eikowagenknecht.com/lootscraper/11012",
       "https://feed.eikowagenknecht.com/lootscraper/11021",
       "https://feed.eikowagenknecht.com/lootscraper/11022",
       "https://feed.eikowagenknecht.com/lootscraper/11023",
       "https://feed.eikowagenknecht.com/lootscraper/11024",
       "https://feed.eikowagenknecht.com/lootscraper/11025",
       "https://feed.eikowagenknecht.com/lootscraper/11026",
-      "https://feed.eikowagenknecht.com/lootscraper/11027",
       "https://feed.eikowagenknecht.com/lootscraper/11028",
       "https://feed.eikowagenknecht.com/lootscraper/11029",
       "https://feed.eikowagenknecht.com/lootscraper/11030",
@@ -66,6 +62,13 @@
       "https://feed.eikowagenknecht.com/lootscraper/11033",
       "https://feed.eikowagenknecht.com/lootscraper/11034",
       "https://feed.eikowagenknecht.com/lootscraper/11035",
+      "https://feed.eikowagenknecht.com/lootscraper/11036",
+      "https://feed.eikowagenknecht.com/lootscraper/11037",
+      "https://feed.eikowagenknecht.com/lootscraper/11038",
+      "https://feed.eikowagenknecht.com/lootscraper/10976",
+      "https://feed.eikowagenknecht.com/lootscraper/11011",
+      "https://feed.eikowagenknecht.com/lootscraper/11012",
+      "https://feed.eikowagenknecht.com/lootscraper/11027",
       "https://feed.eikowagenknecht.com/lootscraper/10998",
       "https://feed.eikowagenknecht.com/lootscraper/10962",
       "https://feed.eikowagenknecht.com/lootscraper/11013",
@@ -165,14 +168,14 @@
   "legion": {
     "events": [
       {
-        "title": "Mail Mole Key Drops",
-        "url": "https://gaming.lenovo.com/mail-mole-key-drops",
-        "date": "2026-11-11"
-      },
-      {
-        "title": "Fallout New Vegas",
+        "title": "Fallout: New Vegas Key Drops",
         "url": "https://gaming.lenovo.com/fallout-new-vegas-key-drops",
         "date": "2026-12-02"
+      },
+      {
+        "title": "Mail Mole",
+        "url": "https://gaming.lenovo.com/mail-mole-key-drops",
+        "date": "2026-11-11"
       }
     ],
     "reminded": [

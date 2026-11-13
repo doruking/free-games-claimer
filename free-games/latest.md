@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 13 Kasım 2026 11:59 (İstanbul saati)
+Son kontrol: 13 Kasım 2026 20:06 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -30,8 +30,8 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
 ## Legion Gaming Community — Game Key Drops
 
-- [Mail Mole Key Drops](https://gaming.lenovo.com/mail-mole-key-drops) — 2026-11-11
-- [Fallout New Vegas](https://gaming.lenovo.com/fallout-new-vegas-key-drops) — 2026-12-02
+- [Fallout: New Vegas Key Drops](https://gaming.lenovo.com/fallout-new-vegas-key-drops) — 2026-12-02
+- [Mail Mole](https://gaming.lenovo.com/mail-mole-key-drops) — 2026-11-11
 
 ## Fab
 
