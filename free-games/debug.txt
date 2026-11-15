@@ -1,0 +1,26 @@
+STEAM [mevcut sorgu] HTTP 200 total_count=0 satır=0 yüzde100=0 yüzdesiz=0
+STEAM [sadece indirimdekiler] HTTP 200 total_count=6172 satır=100 yüzde100=0 yüzdesiz=100
+    5434520 | Little Seed | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5402450 | Outbreak Checkpoint | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    4783310 | Re:collect | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5024380 | 三國撞撞樂 | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5462420 | Ballpeak | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5485210 | 내 여동생(My Sister) | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    3325950 | Red Crucible Assault | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    2402620 | World Guesser | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5052180 | Hanafuda | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5451060 | Crowns & Colossi | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5450860 | How Many Tickets Does It Take To Win The Lottery? | yüzde: ? | fiyat: search_price_discount_combined responsiv
+    5445850 | Commander's Dilemma | yüzde: ? | fiyat: search_price_discount_combined responsiv
+STEAM [hepsi (DLC dahil) maxprice=free+specials] HTTP 200 total_count=0 satır=0 yüzde100=0 yüzdesiz=0
+
+LOOTSCRAPER HTTP 200, 31 kayıt, en yeni 2026-11-14T12:00:20.682Z, en eski 2026-08-26T12:00:16.823Z
+    11 x Amazon Prime | PC | Game
+    14 x Apple App Store | iOS | Game
+    1 x Epic Games | Android | Game
+    1 x Epic Games | PC | Game
+    1 x Epic Games | iOS | Game
+    3 x Fab | PC | Asset
+
+Google Play / Android kayıtları:
+    2026-11-12T16:15:08.602Z | Epic Games | Android | Game | Epic Games (Game, Android) - Knightica
