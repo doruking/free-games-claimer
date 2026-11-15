@@ -62,3 +62,13 @@ GAMERPOWER [platform=android] HTTP 200, 12 kayıt
 
 GAMERPOWER [platform=steam] HTTP 200, 1 kayıt
    - 3716 | Dwarven Realms (Steam) Key Giveaway | PC, Steam | Game | $9.99 | N/A | Active
+
+STEAM Price_ASC: HTTP 200 total_count=6184 satır=100
+     | indirim: 90 | fiyat(kuruş): 44
+    357070 | indirim: 90 | fiyat(kuruş): 44
+    1239260 | indirim: 90 | fiyat(kuruş): 44
+    1854120 | indirim: 90 | fiyat(kuruş): 44
+    1958600 | indirim: 90 | fiyat(kuruş): 44
+    1168660 | indirim: 90 | fiyat(kuruş): 44
+    643960 | indirim: 85 | fiyat(kuruş): 44
+    485450 | indirim: 90 | fiyat(kuruş): 44
