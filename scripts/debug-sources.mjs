@@ -68,5 +68,14 @@ try {
   }
 } catch (e) { log('GAMERPOWER HATA: ' + e.message); }
 
+// ---- 3. tur: Price_ASC sıralaması doğru mu? ----
+try {
+  const r = await fetch(steam('&specials=1&category1=998').replace('Released_DESC', 'Price_ASC'), { headers: { 'user-agent': UA, 'accept-language': 'tr-TR,tr;q=0.9' } });
+  const j = await r.json();
+  const rows = [...(j.results_html ?? '').matchAll(/<a\b[^>]*search_result_row[\s\S]*?<\/a>/g)].map((m) => m[0]);
+  log(`\nSTEAM Price_ASC: HTTP ${r.status} total_count=${j.total_count} satır=${rows.length}`);
+  for (const b of rows.slice(0, 8)) log('   ', b.match(/data-ds-appid="(\d+)"/)?.[1], '| indirim:', b.match(/data-discount="(\d+)"/)?.[1], '| fiyat(kuruş):', b.match(/data-price-final="(\d+)"/)?.[1]);
+} catch (e) { log('STEAM Price_ASC HATA: ' + e.message); }
+
 await writeFile('free-games/debug.txt', out.join('\n') + '\n');
 console.log(out.join('\n'));

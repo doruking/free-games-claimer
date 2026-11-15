@@ -63,23 +63,32 @@ const decode = (t) => t
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 
 async function getSteam() {
-  const url = `https://store.steampowered.com/search/results/?query&start=0&count=100&sort_by=Released_DESC&maxprice=free&specials=1&category1=998&infinite=1&cc=${COUNTRY}&l=turkish`;
+  // En ucuzdan pahalıya sıralı indirimli oyunlar: %100 indirimli (fiyatı 0) olanlar en başa gelir.
+  // category1=998 sadece oyunlar demektir; DLC ve eklentiler Steam'de bilerek hariç.
+  const url = `https://store.steampowered.com/search/results/?query&start=0&count=100&sort_by=Price_ASC&specials=1&category1=998&infinite=1&cc=${COUNTRY}&l=turkish`;
   const res = await fetch(url, { headers: { 'user-agent': UA, 'accept-language': 'tr-TR,tr;q=0.9' } });
   if (!res.ok) throw new Error(`Steam hata verdi: HTTP ${res.status}`);
   const data = await res.json();
   if (typeof data?.results_html !== 'string') throw new Error('Steam yanıtı beklenen biçimde değil.');
 
+  let rows = 0;
+  let readable = 0;
   const items = [];
   for (const m of data.results_html.matchAll(/<a\b[^>]*search_result_row[\s\S]*?<\/a>/g)) {
     const block = m[0];
     const id = block.match(/data-ds-appid="(\d+)"/)?.[1];
     const title = block.match(/<span class="title">([\s\S]*?)<\/span>/)?.[1];
-    const pct = block.match(/discount_pct">\s*-?(\d+)%/)?.[1];
-    if (!id || !title || pct !== '100') continue;
+    // Yüzde, data-discount özelliğinde durur (ör. data-discount="40"); eski biçim yedek olarak okunur.
+    const pct = block.match(/data-discount="(\d+)"/)?.[1] ?? block.match(/class="discount_pct"[^>]*>\s*-?(\d+)%/)?.[1];
+    if (!id || !title) continue;
+    rows += 1;
+    if (pct !== undefined) readable += 1;
+    if (pct !== '100') continue;
     items.push({ id, title: decode(title), url: `https://store.steampowered.com/app/${id}/` });
   }
-  if (!items.length && Number(data.total_count) > 0) throw new Error('Steam sonuçları ayrıştırılamadı.');
-  items.sort((a, b) => a.title.localeCompare(b.title));
+  // Satırlar geldi ama hiçbirinde yüzde okunamadıysa sayfa yapısı değişmiştir; sessizce "yok" deme.
+  if (rows > 0 && readable === 0) throw new Error('Steam indirim yüzdeleri okunamadı (sayfa yapısı değişmiş olabilir).');
+  items.sort((x, y) => x.title.localeCompare(y.title));
   return { key: items.map((i) => i.id).sort().join('|'), items };
 }
 
@@ -165,6 +174,45 @@ async function getLoot() {
   }
   items.sort((a, b) => b.published.localeCompare(a.published));
   return { items, allIds: entries.map((x) => x.id), debug: entries.slice(0, 2).map((x) => x.raw).join('\n-----\n').slice(0, 3000) };
+}
+
+// ---------- GamerPower (Steam anahtar çekilişleri, Itch.io, IndieGala, Android/iOS ve diğerleri) ----------
+// Veri: https://www.gamerpower.com (kaynak gösterimi zorunlu; raporda ve bildirimde link var).
+// Epic ve GOG ayrı kontrol edildiği için elenir; başka kaynakta zaten bulunan oyunlar da tekrar edilmez.
+const GP_URL = 'https://www.gamerpower.com';
+const norm = (t) => t.toLowerCase().replace(/\[[^\]]*\]|\([^)]*\)/g, ' ').replace(/key giveaway|giveaway/g, ' ').replace(/[^a-z0-9]+/g, '');
+
+async function getGamerPower(knownTitles) {
+  const res = await fetch(`${GP_URL}/api/giveaways`, { headers: { 'user-agent': UA, accept: 'application/json' } });
+  if (res.status === 201) return { items: [] }; // aktif çekiliş yok
+  if (!res.ok) throw new Error(`GamerPower hata verdi: HTTP ${res.status}`);
+  const list = await res.json();
+  if (!Array.isArray(list)) throw new Error('GamerPower yanıtı beklenen biçimde değil.');
+  const known = knownTitles.map(norm).filter((k) => k.length >= 5);
+
+  const items = [];
+  for (const g of list) {
+    if (!g?.id || !g.title || (g.status && g.status !== 'Active')) continue;
+    const type = String(g.type ?? '').toLowerCase();
+    const platforms = decode(g.platforms ?? '');
+    if (type !== 'game' && type !== 'dlc') continue; // erken erişim/beta ve diğerleri değil
+    if (/epic games store|\bgog\b/i.test(platforms)) continue; // Epic ve GOG ayrıca kontrol ediliyor
+    if (type === 'dlc' && /steam/i.test(platforms)) continue; // Steam'de DLC ve eklentiler kapalı
+    const title = decode(g.title).replace(/\s+(?:Key\s+)?Giveaway$/i, '');
+    const t = norm(title);
+    if (t.length >= 5 && known.some((k) => t.includes(k) || k.includes(t))) continue; // başka kaynakta zaten var
+    items.push({
+      id: String(g.id),
+      title,
+      platforms,
+      type: type === 'dlc' ? 'DLC' : 'Oyun',
+      key: /key\s+giveaway/i.test(g.title),
+      worth: g.worth && g.worth !== 'N/A' ? g.worth : null,
+      endsAt: g.end_date && g.end_date !== 'N/A' ? g.end_date : null,
+      url: g.open_giveaway_url || g.gamerpower_url || GP_URL,
+    });
+  }
+  return { items };
 }
 
 // ---------- Legion Gaming Community (Game Key Drops) ----------
@@ -296,6 +344,7 @@ try {
 const previousEpicKey = previous.epic?.key ?? previous.key ?? null; // eski dosya biçimiyle uyumlu
 const previousSteamIds = new Set((previous.steam?.items ?? []).map((i) => i.id));
 const previousGogIds = new Set((previous.gog?.items ?? []).map((i) => i.id));
+const previousGpIds = new Set((previous.gamerpower?.items ?? []).map((i) => i.id));
 const previousLootSeen = new Set(previous.lootscraper?.seen ?? []);
 const previousLegionUrls = new Set((previous.legion?.events ?? []).map((e) => e.url));
 const previousLegionReminded = new Set(previous.legion?.reminded ?? []);
@@ -306,6 +355,10 @@ const epic = await getEpic().catch((e) => { errors.push(`Epic: ${e.message}`); r
 const steam = await getSteam().catch((e) => { errors.push(`Steam: ${e.message}`); return null; });
 const gog = await getGog().catch((e) => { errors.push(`GOG: ${e.message}`); return null; });
 const loot = await getLoot().catch((e) => { errors.push(`LootScraper: ${e.message}`); return null; });
+const gp = await getGamerPower([
+  ...(epic?.current ?? []).map((i) => i.title), ...(steam?.items ?? []).map((i) => i.title),
+  ...(gog?.items ?? []).map((i) => i.title), ...(loot?.items ?? []).map((i) => i.title),
+]).catch((e) => { errors.push(`GamerPower: ${e.message}`); return null; });
 let legionDebug = '';
 const legion = await getLegion().catch((e) => { errors.push(`Legion: ${e.message}`); legionDebug = e.debug ?? ''; return null; });
 errors.forEach((e) => console.warn(`UYARI ${e}`));
@@ -340,13 +393,23 @@ const lines = [
     ? (gog.items.length ? gog.items.map((i) => `- [${i.title}](${i.url})`) : ['- Şu an bedava oyun görünmüyor.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('GOG:')) ?? 'bilinmeyen hata'}).`]),
   '',
-  '## Diğer platformlar (Prime Gaming, Humble, Play Store, Fab, Epic mobil) — son 7 gün',
+  '## Diğer platformlar (Prime Gaming, Humble, Fab, Epic mobil) — son 7 gün',
   '',
   ...(loot
     ? (loot.items.length ? loot.items.map((i) => `- ${i.source}: [${i.title}](${i.url})${i.note ? ` — ${i.note}` : ''}`) : ['- Yeni bir şey görünmüyor.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('LootScraper:')) ?? 'bilinmeyen hata'}).`]),
   '',
   'Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)',
+  '',
+  '## Diğer çekilişler (Steam anahtarları, Itch.io, IndieGala, Android/iOS...)',
+  '',
+  ...(gp
+    ? (gp.items.length
+      ? gp.items.slice(0, 40).map((i) => `- [${i.title}](${i.url}) — ${i.platforms}${i.type === 'DLC' ? ' — DLC' : ''}${i.key ? ' — anahtar (Steam\'de etkinleştir)' : ''}${i.worth ? ` — değeri ${i.worth}` : ''}${i.endsAt ? ` — son: ${i.endsAt}` : ''}`)
+      : ['- Şu an listelenmiş çekiliş yok.'])
+    : [`- Veri alınamadı (${errors.find((e) => e.startsWith('GamerPower:')) ?? 'bilinmeyen hata'}).`]),
+  '',
+  `Veri: [GamerPower](${GP_URL})`,
   '',
   '## Legion Gaming Community — Game Key Drops',
   '',
@@ -367,6 +430,7 @@ await writeFile(`${OUT_DIR}/latest.json`, JSON.stringify({
   steam: steam ?? previous.steam ?? null,
   gog: gog ?? previous.gog ?? null,
   lootscraper: loot ? { seen: [...new Set([...loot.allIds, ...previousLootSeen])].slice(0, 600), items: loot.items } : previous.lootscraper ?? null,
+  gamerpower: gp ? { items: gp.items } : previous.gamerpower ?? null,
   legion: legion ? { events: legion.events, reminded: [...previousLegionReminded] } : previous.legion ?? null,
   fabReminder: previousFabReminder,
 }, null, 2) + '\n');
@@ -435,6 +499,30 @@ if (loot) {
     });
   }
   if (!fresh.length) console.log('LootScraper: bildirim gerekmiyor.');
+}
+
+// GamerPower: ilk çalıştırmada mevcut listeyi sessizce kaydet, sonra sadece yenileri bildir.
+if (gp) {
+  if (!previous.gamerpower) {
+    console.log(`GamerPower: ilk çalıştırma, ${gp.items.length} mevcut içerik sessizce kaydedildi.`);
+  } else {
+    const fresh = gp.items.filter((i) => !previousGpIds.has(i.id));
+    if (fresh.length) {
+      const shown = fresh.slice(0, 8);
+      await notify({
+        title: `Bedava: ${shown.map((i) => i.title).join(', ')}`.slice(0, 200),
+        plain: [
+          ...shown.map((i) => `• ${i.title}${i.type === 'DLC' ? ' [DLC]' : ''}\n  ${i.platforms}${i.endsAt ? ` — son: ${i.endsAt}` : ''}\n  ${i.url}`),
+          ...(fresh.length > shown.length ? [`... ve ${fresh.length - shown.length} tane daha (liste: free-games/latest.md)`] : []),
+          '',
+          `Veri: ${GP_URL}`,
+        ].join('\n'),
+        links: shown.map((i) => ({ label: i.title, url: i.url })),
+      });
+    } else {
+      console.log('GamerPower: bildirim gerekmiyor.');
+    }
+  }
 }
 
 // Legion: yeni etkinlik ve etkinlik günü hatırlatması
