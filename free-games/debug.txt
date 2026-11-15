@@ -24,3 +24,41 @@ LOOTSCRAPER HTTP 200, 31 kayıt, en yeni 2026-11-14T12:00:20.682Z, en eski 2026-
 
 Google Play / Android kayıtları:
     2026-11-12T16:15:08.602Z | Epic Games | Android | Game | Epic Games (Game, Android) - Knightica
+
+STEAM ham satır #1 (sıkıştırılmış):
+<a href="https://store.steampowered.com/app/5434520/Little_Seed/?snr=1_7_7_2300_150_1" data-ds-appid="5434520" data-ds-itemkey="App_5434520" data-ds-tagids="[597,1625,5379,3871,4726,4166,30358]" onmouseover="GameHover( this, event, 'global_hover', {&quot;type&quot;:&quot;app&quot;,&quot;id&quot;:5434520,&quot;public&quot;:1,&quot;v6&quot;:1} );" onmouseout="HideGameHover( this, event, 'global_hover' )" class="search_result_row ds_collapse_flag " data-search-page="1" data-gpnav="item" data-ds-steam-deck-compat-handled="true"> <div class="search_capsule"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5434520/e912f95aaf8484a9fdf2881c4bf365af5d939d91/capsule_231x87.jpg?t=1794739514" ></div> <div class="responsive_search_name_combined"> <div class="search_name ellipsis"> <span class="title">Little Seed</span> </div> <div class="search_platforms"> <span class="platform_img win"></span> </div> <div class="search_released responsive_secondrow"> 15 Kas 2026 </div> <div class="search_reviewscore responsive_secondrow"> </div> <div class="search_price_discount_combined responsive_secondrow" data-price-final="3119"> <div class="search_discount_and_price responsive_secondrow"> <div class="discount_block search_discount_block" data-price-final="3119" data-bundlediscount="0" data-discount="40"><div class="discount_pct" aria-hidden="true" data-tooltip-text="Normal fiyat üzerinden sınırlı süreli indirim">-40%</div><div class="discount_prices" aria-hidden="true"><div class="discount_original_price">$51.99</div><div class="discount_final_price">$31.19</div></div><span class="discount_aria_label">%40 indirim. Normalde $51.99, indirimli fiyatı $31.19.</span></div> </div> </div> </div> </a>
+"discount" geçen satır: 100/100
+
+GAMERPOWER [type=game] HTTP 200, 13 kayıt
+   alanlar: id,title,worth,thumbnail,image,description,instructions,open_giveaway_url,published_date,type,platforms,end_date,users,status,gamerpower_url,open_giveaway
+    7 x PC, DRM-Free
+    2 x PC, Itch.io, DRM-Free
+    1 x PC, Android, iOS, Epic Games Store
+    1 x PC, Steam
+    1 x PC
+    1 x VR
+   - 3850 | Knightica (Epic Games) Giveaway | PC, Android, iOS, Epic Games Store | Game | $14.99 | 2026-11-19 23:59:00 | Active
+   - 3346 | My Darkest Witch (IndieGala) Giveaway | PC, DRM-Free | Game | $4.99 | N/A | Active
+   - 3830 | Free itch.io Games Bundle | PC, Itch.io, DRM-Free | Game | $384.00 | 2026-11-22 23:59:00 | Active
+   - 3340 | ANCIENT EVIL (IndieGala) Giveaway | PC, DRM-Free | Game | $4.99 | N/A | Active
+   - 3331 | Last Room (IndieGala) Giveaway | PC, DRM-Free | Game | $29.99 | N/A | Active
+   - 3328 | Best Plumber (IndieGala) Giveaway | PC, DRM-Free | Game | $29.99 | N/A | Active
+   - 3322 | Sausage Hunter (Indiegala) Giveaway | PC, DRM-Free | Game | $29.99 | N/A | Active
+   - 3324 | Battle Ram (IndieGala) Giveaway | PC, DRM-Free | Game | $29.99 | N/A | Active
+   - 3316 | Leaper (IndieGala) Giveaway | PC, DRM-Free | Game | $4.99 | N/A | Active
+   - 3716 | Dwarven Realms (Steam) Key Giveaway | PC, Steam | Game | $9.99 | N/A | Active
+
+GAMERPOWER [platform=android] HTTP 200, 12 kayıt
+   - 3850 | Knightica (Epic Games) Giveaway | PC, Android, iOS, Epic Games Store | Game | $14.99 | 2026-11-19 23:59:00 | Active
+   - 3789 | Warframe Igaro Syandana and Ice Colour Picker Pack Key Giveaway | PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One, Android, iOS | DLC | N/A | N/A | Active
+   - 3783 | Aniimo Gift Pack Key Giveaway | PC, Playstation 5, Xbox Series X|S, Android, iOS | DLC | N/A | 2026-10-30 23:59:00 | Active
+   - 3728 | Reverse: 1999 Bonus Pack Key Giveaway | PC, Android, iOS | DLC | N/A | N/A | Active
+   - 3592 | Arknights: Endfield Gift Pack Key Giveaway | PC, Playstation 5, Android, iOS | DLC | N/A | N/A | Active
+   - 3582 | Idle Champions Lae'zel Key Giveaway | PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One, Android, iOS | DLC | N/A | N/A | Active
+   - 3293 | DungeonLoot: Open Beta Has Arrived! | PC, Steam, Epic Games Store, Playstation 5, Xbox Series X|S, Nintendo Switch, Android, iOS | Early Access | N/A | N/A | Active
+   - 1890 | Minecraft: Peace Builders (DLC) | PC, Playstation 4, Xbox One, Nintendo Switch, Android, iOS | DLC | N/A | N/A | Active
+   - 1531 | GamerPower Mobile App | Android | Early Access | N/A | N/A | Active
+   - 1130 | Minecraft: Seaside Story (DLC) | PC, Playstation 4, Xbox One, Nintendo Switch, Android, iOS | DLC | N/A | N/A | Active
+
+GAMERPOWER [platform=steam] HTTP 200, 1 kayıt
+   - 3716 | Dwarven Realms (Steam) Key Giveaway | PC, Steam | Game | $9.99 | N/A | Active
