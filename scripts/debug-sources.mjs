@@ -38,5 +38,35 @@ try {
   for (const x of entries.filter((x) => /google|play|android/i.test(`${x.source} ${x.platform}`))) log('   ', x.published, '|', x.source, '|', x.platform, '|', x.type, '|', x.title.slice(0, 80));
 } catch (e) { log(`LOOTSCRAPER HATA: ${e.message}`); }
 
+
+// ---- 2. tur: Steam satırının ham yapısı ----
+try {
+  const r = await fetch(steam('&specials=1&category1=998'), { headers: { 'user-agent': UA, 'accept-language': 'tr-TR,tr;q=0.9' } });
+  const j = await r.json();
+  const rows = [...(j.results_html ?? '').matchAll(/<a\b[^>]*search_result_row[\s\S]*?<\/a>/g)].map((m) => m[0]);
+  log('\nSTEAM ham satır #1 (sıkıştırılmış):');
+  log((rows[0] ?? 'satır yok').replace(/\s+/g, ' ').slice(0, 1800));
+  const withDisc = rows.filter((b) => /data-discount|discount/i.test(b)).length;
+  log(`"discount" geçen satır: ${withDisc}/${rows.length}`);
+} catch (e) { log('STEAM ham satır HATA: ' + e.message); }
+
+// ---- GamerPower ----
+try {
+  for (const [name, q] of [['type=game', 'type=game'], ['platform=android', 'platform=android'], ['platform=steam', 'platform=steam&type=game']]) {
+    const r = await fetch(`https://www.gamerpower.com/api/giveaways?${q}`, { headers: { 'user-agent': UA, accept: 'application/json' } });
+    const txt = await r.text();
+    let j = null; try { j = JSON.parse(txt); } catch { /* json değil */ }
+    log(`\nGAMERPOWER [${name}] HTTP ${r.status}, ${Array.isArray(j) ? j.length + ' kayıt' : 'dizi değil: ' + txt.slice(0, 120)}`);
+    if (Array.isArray(j) && j.length) {
+      if (name === 'type=game') {
+        log('   alanlar:', Object.keys(j[0]).join(','));
+        const pc = {}; for (const g of j) pc[g.platforms] = (pc[g.platforms] ?? 0) + 1;
+        for (const [k, v] of Object.entries(pc).sort((a, b) => b[1] - a[1]).slice(0, 18)) log('   ', v, 'x', k);
+      }
+      for (const g of j.slice(0, 10)) log('   -', g.id, '|', g.title, '|', g.platforms, '|', g.type, '|', g.worth, '|', g.end_date, '|', g.status);
+    }
+  }
+} catch (e) { log('GAMERPOWER HATA: ' + e.message); }
+
 await writeFile('free-games/debug.txt', out.join('\n') + '\n');
 console.log(out.join('\n'));
