@@ -405,7 +405,7 @@ const lines = [
   '',
   ...(gp
     ? (gp.items.length
-      ? gp.items.slice(0, 40).map((i) => `- [${i.title}](${i.url}) — ${i.platforms}${i.type === 'DLC' ? ' — DLC' : ''}${i.key ? ' — anahtar (Steam\'de etkinleştir)' : ''}${i.worth ? ` — değeri ${i.worth}` : ''}${i.endsAt ? ` — son: ${i.endsAt}` : ''}`)
+      ? gp.items.slice(0, 40).map((i) => `- [${i.title}](${i.url}) — ${i.platforms}${i.type === 'DLC' ? ' — DLC' : ''}${i.key ? ' — anahtar/kod' : ''}${i.worth ? ` — değeri ${i.worth}` : ''}${i.endsAt ? ` — son: ${i.endsAt}` : ''}`)
       : ['- Şu an listelenmiş çekiliş yok.'])
     : [`- Veri alınamadı (${errors.find((e) => e.startsWith('GamerPower:')) ?? 'bilinmeyen hata'}).`]),
   '',
