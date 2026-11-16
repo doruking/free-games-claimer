@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 15 Kasım 2026 13:52 (İstanbul saati)
+Son kontrol: 16 Kasım 2026 22:14 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -8,7 +8,6 @@ Son kontrol: 15 Kasım 2026 13:52 (İstanbul saati)
 
 ## Epic Games Store — sıradaki
 
-- Alien: Isolation — 19 Kasım 2026 19:00 tarihinde başlıyor
 - Mark of the Deep — 19 Kasım 2026 19:00 tarihinde başlıyor
 
 ## Steam — kalıcı ücretsiz (%100 indirim)
