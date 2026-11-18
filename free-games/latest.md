@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 17 Kasım 2026 22:57 (İstanbul saati)
+Son kontrol: 18 Kasım 2026 21:35 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -8,6 +8,7 @@ Son kontrol: 17 Kasım 2026 22:57 (İstanbul saati)
 
 ## Epic Games Store — sıradaki
 
+- Firestone – Idle Clicker Online RPG — 26 Kasım 2026 19:00 tarihinde başlıyor
 - Mark of the Deep — 19 Kasım 2026 19:00 tarihinde başlıyor
 
 ## Steam — kalıcı ücretsiz (%100 indirim)
