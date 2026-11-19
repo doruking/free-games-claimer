@@ -1,15 +1,15 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 18 Kasım 2026 21:35 (İstanbul saati)
+Son kontrol: 19 Kasım 2026 21:46 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
-- [Knightica](https://store.epicgames.com/tr/p/knightica-3be45c) — 19 Kasım 2026 19:00 tarihine kadar
+- [Mark of the Deep](https://store.epicgames.com/tr/p/mark-of-the-deep-f7dc08) — 26 Kasım 2026 19:00 tarihine kadar
 
 ## Epic Games Store — sıradaki
 
+- Bread and Fred — 26 Kasım 2026 19:00 tarihinde başlıyor
 - Firestone – Idle Clicker Online RPG — 26 Kasım 2026 19:00 tarihinde başlıyor
-- Mark of the Deep — 19 Kasım 2026 19:00 tarihinde başlıyor
 
 ## Steam — kalıcı ücretsiz (%100 indirim)
 
@@ -21,18 +21,19 @@ Son kontrol: 18 Kasım 2026 21:35 (İstanbul saati)
 
 ## Diğer platformlar (Prime Gaming, Humble, Fab, Epic mobil) — son 7 gün
 
+- Epic Games: [Lonesome Village (iOS)](https://store.epicgames.com/en-US/p/lonesome-village-ios-2a807f) — son: 2026-11-26 16:00
+- Epic Games: [Lonesome Village (Android)](https://store.epicgames.com/en-US/p/lonesome-village-android-15d165) — son: 2026-11-26 16:00
 - Fab: [Absorption FX](https://www.fab.com/listings/81550176-a90e-4e07-8817-c8d1a1d3884b) — son: 2026-12-01 14:59
 - Fab: [Advanced Companion Drone System | AI & Multiplayer](https://www.fab.com/listings/205d550d-0a5f-4d5c-9f3e-8f6254b9dc4f) — son: 2026-12-01 14:59
 - Fab: [Post-Apocalyptic Factory Overgrown Factory Facility & Vehicles](https://www.fab.com/listings/c0226253-11f0-425d-8b2c-df9c42c73f49) — son: 2026-12-01 14:59
 - Amazon Prime: [Radiolight](https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16?ingress=amzn&ref_=SM_Radiolight_S01_FGWP_CRWN) — son: 2026-12-16 00:00
 - Amazon Prime: [Jurassic World Evolution 2](https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5?ingress=amzn&ref_=SM_JurassicWorldEvolution2_S01_FGWP_CRWN) — son: 2026-12-16 00:00
-- Epic Games: [Knightica (iOS)](https://store.epicgames.com/en-US/p/knightica-ios-b4550a) — son: 2026-11-19 16:00
-- Epic Games: [Knightica (Android)](https://store.epicgames.com/en-US/p/knightica-android-ad8285) — son: 2026-11-19 16:00
 
 Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
 ## Diğer çekilişler (Steam anahtarları, Itch.io, IndieGala, Android/iOS...)
 
+- [World of Warships: Black Friday](https://www.gamerpower.com/open/world-of-warships-black-friday-giveaway) — PC — DLC — son: 2026-12-04 23:59:00
 - [Kettlebell: Inferno Hotel Afterimage Effect](https://www.gamerpower.com/open/kettlebell-inferno-hotel-afterimage-effect-key-giveaway) — PC — DLC — anahtar/kod
 - [Dead by Daylight 100k Bloodpoints](https://www.gamerpower.com/open/dead-by-daylight-100k-bloodpoints-key-giveaway) — PC — DLC — anahtar/kod — son: 2026-12-31 23:59:59
 - [My Darkest Witch (IndieGala)](https://www.gamerpower.com/open/my-darkest-witch-pc-giveaway) — PC, DRM-Free — değeri $4.99
@@ -72,14 +73,13 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [The Elder Scrolls Online: Experience Scroll](https://www.gamerpower.com/open/the-elder-scrolls-online-experience-scroll-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
 - [Homeworld 3 Emblem](https://www.gamerpower.com/open/homeworld-3-emblem-key-giveaway) — PC — DLC — anahtar/kod
 - [The Elder Scrolls Online: Pyromancer's Quandary Emote](https://www.gamerpower.com/open/the-elder-scrolls-online-pyromancer-s-quandary-emote-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
-- [Metaball Jersey](https://www.gamerpower.com/open/metaball-jersey-key-giveaway) — PC — DLC — anahtar/kod
 
 Veri: [GamerPower](https://www.gamerpower.com)
 
 ## Legion Gaming Community — Game Key Drops
 
 - [Fallout: New Vegas Key Drops](https://gaming.lenovo.com/fallout-new-vegas-key-drops) — 2026-12-02
-- [Mail Mole](https://gaming.lenovo.com/mail-mole-key-drops) — 2026-11-11
+- [Slowly Sliding Ducks](https://gaming.lenovo.com/game-key-drops/post/coming-soon-slowly-sliding-ducks---game-key-drops-5KyRTjHjgaezSfd) — 2026-12-16
 
 ## Fab
 
