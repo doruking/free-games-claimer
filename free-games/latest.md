@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 19 Kasım 2026 21:46 (İstanbul saati)
+Son kontrol: 20 Kasım 2026 03:59 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -21,13 +21,13 @@ Son kontrol: 19 Kasım 2026 21:46 (İstanbul saati)
 
 ## Diğer platformlar (Prime Gaming, Humble, Fab, Epic mobil) — son 7 gün
 
+- Amazon Prime: [CLeM](https://luna.amazon.com/claims/clem-epic/dp/amzn1.pg.item.a5c7d537-4c60-4940-86b8-0d1c13db9163?g=s&ingress=amzn&ref_=SM_CLeM_S01_FGWP_CRWN) — son: 2026-12-23 00:00
+- Amazon Prime: [Werewolf: The Apocalypse: Earthblood](https://luna.amazon.com/claims/werewolf-the-apocalypse-earthblood-epic/dp/amzn1.pg.item.51cac85b-21fe-4e69-b048-3c70dfaf50d3?g=s&ingress=amzn&ref_=SM_WerewolfTheApocalypseEarthblood_S01_FGWP_CRWN) — son: 2026-12-23 00:00
 - Epic Games: [Lonesome Village (iOS)](https://store.epicgames.com/en-US/p/lonesome-village-ios-2a807f) — son: 2026-11-26 16:00
 - Epic Games: [Lonesome Village (Android)](https://store.epicgames.com/en-US/p/lonesome-village-android-15d165) — son: 2026-11-26 16:00
 - Fab: [Absorption FX](https://www.fab.com/listings/81550176-a90e-4e07-8817-c8d1a1d3884b) — son: 2026-12-01 14:59
 - Fab: [Advanced Companion Drone System | AI & Multiplayer](https://www.fab.com/listings/205d550d-0a5f-4d5c-9f3e-8f6254b9dc4f) — son: 2026-12-01 14:59
 - Fab: [Post-Apocalyptic Factory Overgrown Factory Facility & Vehicles](https://www.fab.com/listings/c0226253-11f0-425d-8b2c-df9c42c73f49) — son: 2026-12-01 14:59
-- Amazon Prime: [Radiolight](https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16?ingress=amzn&ref_=SM_Radiolight_S01_FGWP_CRWN) — son: 2026-12-16 00:00
-- Amazon Prime: [Jurassic World Evolution 2](https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5?ingress=amzn&ref_=SM_JurassicWorldEvolution2_S01_FGWP_CRWN) — son: 2026-12-16 00:00
 
 Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 

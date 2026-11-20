@@ -63,6 +63,8 @@
       "https://feed.eikowagenknecht.com/lootscraper/11047",
       "https://feed.eikowagenknecht.com/lootscraper/11048",
       "https://feed.eikowagenknecht.com/lootscraper/11049",
+      "https://feed.eikowagenknecht.com/lootscraper/11050",
+      "https://feed.eikowagenknecht.com/lootscraper/11051",
       "https://feed.eikowagenknecht.com/lootscraper/11024",
       "https://feed.eikowagenknecht.com/lootscraper/11031",
       "https://feed.eikowagenknecht.com/lootscraper/11032",
@@ -143,6 +145,22 @@
     ],
     "items": [
       {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11051",
+        "source": "Amazon Prime",
+        "title": "CLeM",
+        "url": "https://luna.amazon.com/claims/clem-epic/dp/amzn1.pg.item.a5c7d537-4c60-4940-86b8-0d1c13db9163?g=s&ingress=amzn&ref_=SM_CLeM_S01_FGWP_CRWN",
+        "published": "2026-11-19T19:00:40.037Z",
+        "note": "son: 2026-12-23 00:00"
+      },
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11050",
+        "source": "Amazon Prime",
+        "title": "Werewolf: The Apocalypse: Earthblood",
+        "url": "https://luna.amazon.com/claims/werewolf-the-apocalypse-earthblood-epic/dp/amzn1.pg.item.51cac85b-21fe-4e69-b048-3c70dfaf50d3?g=s&ingress=amzn&ref_=SM_WerewolfTheApocalypseEarthblood_S01_FGWP_CRWN",
+        "published": "2026-11-19T19:00:37.298Z",
+        "note": "son: 2026-12-23 00:00"
+      },
+      {
         "id": "https://feed.eikowagenknecht.com/lootscraper/11049",
         "source": "Epic Games",
         "title": "Lonesome Village (iOS)",
@@ -181,22 +199,6 @@
         "url": "https://www.fab.com/listings/c0226253-11f0-425d-8b2c-df9c42c73f49",
         "published": "2026-11-17T15:15:09.164Z",
         "note": "son: 2026-12-01 14:59"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11035",
-        "source": "Amazon Prime",
-        "title": "Radiolight",
-        "url": "https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16?ingress=amzn&ref_=SM_Radiolight_S01_FGWP_CRWN",
-        "published": "2026-11-12T19:00:49.162Z",
-        "note": "son: 2026-12-16 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11034",
-        "source": "Amazon Prime",
-        "title": "Jurassic World Evolution 2",
-        "url": "https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5?ingress=amzn&ref_=SM_JurassicWorldEvolution2_S01_FGWP_CRWN",
-        "published": "2026-11-12T19:00:45.582Z",
-        "note": "son: 2026-12-16 00:00"
       }
     ]
   },
