@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 20 Kasım 2026 03:59 (İstanbul saati)
+Son kontrol: 23 Kasım 2026 01:39 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -37,7 +37,6 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [Kettlebell: Inferno Hotel Afterimage Effect](https://www.gamerpower.com/open/kettlebell-inferno-hotel-afterimage-effect-key-giveaway) — PC — DLC — anahtar/kod
 - [Dead by Daylight 100k Bloodpoints](https://www.gamerpower.com/open/dead-by-daylight-100k-bloodpoints-key-giveaway) — PC — DLC — anahtar/kod — son: 2026-12-31 23:59:59
 - [My Darkest Witch (IndieGala)](https://www.gamerpower.com/open/my-darkest-witch-pc-giveaway) — PC, DRM-Free — değeri $4.99
-- [Free itch.io Games Bundle](https://www.gamerpower.com/open/free-itch-io-games-bundle) — PC, Itch.io, DRM-Free — değeri $384.00 — son: 2026-11-22 23:59:00
 - [ANCIENT EVIL (IndieGala)](https://www.gamerpower.com/open/ancient-evil-pc-giveaway) — PC, DRM-Free — değeri $4.99
 - [Last Room (IndieGala)](https://www.gamerpower.com/open/last-room-pc-giveaway) — PC, DRM-Free — değeri $29.99
 - [The Witcher 3: Wild Hunt Remastered - Scarlet Crest Armor](https://www.gamerpower.com/open/the-witcher-3-wild-hunt-remastered-scarlet-crest-armor-giveaway) — PC, Playstation 5, Xbox Series X|S, Nintendo Switch — DLC
@@ -73,6 +72,7 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [The Elder Scrolls Online: Experience Scroll](https://www.gamerpower.com/open/the-elder-scrolls-online-experience-scroll-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
 - [Homeworld 3 Emblem](https://www.gamerpower.com/open/homeworld-3-emblem-key-giveaway) — PC — DLC — anahtar/kod
 - [The Elder Scrolls Online: Pyromancer's Quandary Emote](https://www.gamerpower.com/open/the-elder-scrolls-online-pyromancer-s-quandary-emote-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
+- [Metaball Jersey](https://www.gamerpower.com/open/metaball-jersey-key-giveaway) — PC — DLC — anahtar/kod
 
 Veri: [GamerPower](https://www.gamerpower.com)
 
