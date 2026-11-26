@@ -1,28 +1,27 @@
 {
   "epic": {
-    "key": "1f9a12b06b4f437790b6913ad136a08c@2026-11-26T16:00:00.000Z",
+    "key": "0623017cf9f341efbe07557f46beb4e8@2026-12-03T16:00:00.000Z|f0a333114190492c84a9decd2bb43875@2026-12-03T16:00:00.000Z",
     "current": [
-      {
-        "id": "1f9a12b06b4f437790b6913ad136a08c",
-        "title": "Mark of the Deep",
-        "url": "https://store.epicgames.com/tr/p/mark-of-the-deep-f7dc08",
-        "endsAt": "2026-11-26T16:00:00.000Z"
-      }
-    ],
-    "upcoming": [
       {
         "id": "f0a333114190492c84a9decd2bb43875",
         "title": "Bread and Fred",
         "url": "https://store.epicgames.com/tr/p/bread-and-fred-1db362",
-        "startsAt": "2026-11-26T16:00:00.000Z",
         "endsAt": "2026-12-03T16:00:00.000Z"
       },
       {
         "id": "0623017cf9f341efbe07557f46beb4e8",
         "title": "Firestone – Idle Clicker Online RPG",
         "url": "https://store.epicgames.com/tr/p/firestone-online-idle-rpg-bfd04b",
-        "startsAt": "2026-11-26T16:00:00.000Z",
         "endsAt": "2026-12-03T16:00:00.000Z"
+      }
+    ],
+    "upcoming": [
+      {
+        "id": "72bd05148adb4e2cacb8b2efaa4c0297",
+        "title": "Strange Antiquities",
+        "url": "https://store.epicgames.com/tr/p/strange-antiquities-e37660",
+        "startsAt": "2026-12-03T16:00:00.000Z",
+        "endsAt": "2026-12-10T16:00:00.000Z"
       }
     ]
   },
@@ -40,8 +39,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/10961",
       "https://feed.eikowagenknecht.com/lootscraper/10971",
       "https://feed.eikowagenknecht.com/lootscraper/10976",
-      "https://feed.eikowagenknecht.com/lootscraper/10987",
-      "https://feed.eikowagenknecht.com/lootscraper/10988",
       "https://feed.eikowagenknecht.com/lootscraper/11003",
       "https://feed.eikowagenknecht.com/lootscraper/11004",
       "https://feed.eikowagenknecht.com/lootscraper/11021",
@@ -55,12 +52,8 @@
       "https://feed.eikowagenknecht.com/lootscraper/11044",
       "https://feed.eikowagenknecht.com/lootscraper/11045",
       "https://feed.eikowagenknecht.com/lootscraper/11046",
-      "https://feed.eikowagenknecht.com/lootscraper/11047",
-      "https://feed.eikowagenknecht.com/lootscraper/11048",
-      "https://feed.eikowagenknecht.com/lootscraper/11049",
       "https://feed.eikowagenknecht.com/lootscraper/11050",
       "https://feed.eikowagenknecht.com/lootscraper/11051",
-      "https://feed.eikowagenknecht.com/lootscraper/11052",
       "https://feed.eikowagenknecht.com/lootscraper/11054",
       "https://feed.eikowagenknecht.com/lootscraper/11055",
       "https://feed.eikowagenknecht.com/lootscraper/11056",
@@ -68,6 +61,17 @@
       "https://feed.eikowagenknecht.com/lootscraper/11058",
       "https://feed.eikowagenknecht.com/lootscraper/11059",
       "https://feed.eikowagenknecht.com/lootscraper/11060",
+      "https://feed.eikowagenknecht.com/lootscraper/11061",
+      "https://feed.eikowagenknecht.com/lootscraper/11062",
+      "https://feed.eikowagenknecht.com/lootscraper/11063",
+      "https://feed.eikowagenknecht.com/lootscraper/11064",
+      "https://feed.eikowagenknecht.com/lootscraper/11065",
+      "https://feed.eikowagenknecht.com/lootscraper/10987",
+      "https://feed.eikowagenknecht.com/lootscraper/10988",
+      "https://feed.eikowagenknecht.com/lootscraper/11047",
+      "https://feed.eikowagenknecht.com/lootscraper/11048",
+      "https://feed.eikowagenknecht.com/lootscraper/11049",
+      "https://feed.eikowagenknecht.com/lootscraper/11052",
       "https://feed.eikowagenknecht.com/lootscraper/11036",
       "https://feed.eikowagenknecht.com/lootscraper/11053",
       "https://feed.eikowagenknecht.com/lootscraper/11013",
@@ -154,44 +158,28 @@
     ],
     "items": [
       {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11065",
+        "source": "Epic Games",
+        "title": "A Tiny Sticker Tale (Android)",
+        "url": "https://store.epicgames.com/en-US/p/a-tiny-sticker-tale-android-7c58b7",
+        "published": "2026-11-26T16:35:06.583Z",
+        "note": "son: 2026-12-03 16:00"
+      },
+      {
+        "id": "https://feed.eikowagenknecht.com/lootscraper/11064",
+        "source": "Epic Games",
+        "title": "A Tiny Sticker Tale (iOS)",
+        "url": "https://store.epicgames.com/en-US/p/a-tiny-sticker-tale-ios-3aad92",
+        "published": "2026-11-26T16:15:15.322Z",
+        "note": "son: 2026-12-03 16:00"
+      },
+      {
         "id": "https://feed.eikowagenknecht.com/lootscraper/11060",
         "source": "Amazon Prime",
         "title": "Arcadia Fallen",
         "url": "https://luna.amazon.com/claims/arcadia-fallen-aga/dp/amzn1.pg.item.5e2bfe23-c415-4cce-8634-ab6aa1ed76ae?g=s&ingress=amzn&ref_=SM_ArcadiaFallen_S01_FGWP_CRWN",
         "published": "2026-11-24T19:00:34.587Z",
         "note": "son: 2026-12-28 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11051",
-        "source": "Amazon Prime",
-        "title": "CLeM",
-        "url": "https://luna.amazon.com/claims/clem-epic/dp/amzn1.pg.item.a5c7d537-4c60-4940-86b8-0d1c13db9163?g=s&ingress=amzn&ref_=SM_CLeM_S01_FGWP_CRWN",
-        "published": "2026-11-19T19:00:40.037Z",
-        "note": "son: 2026-12-23 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11050",
-        "source": "Amazon Prime",
-        "title": "Werewolf: The Apocalypse: Earthblood",
-        "url": "https://luna.amazon.com/claims/werewolf-the-apocalypse-earthblood-epic/dp/amzn1.pg.item.51cac85b-21fe-4e69-b048-3c70dfaf50d3?g=s&ingress=amzn&ref_=SM_WerewolfTheApocalypseEarthblood_S01_FGWP_CRWN",
-        "published": "2026-11-19T19:00:37.298Z",
-        "note": "son: 2026-12-23 00:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11049",
-        "source": "Epic Games",
-        "title": "Lonesome Village (iOS)",
-        "url": "https://store.epicgames.com/en-US/p/lonesome-village-ios-2a807f",
-        "published": "2026-11-19T16:35:42.340Z",
-        "note": "son: 2026-11-26 16:00"
-      },
-      {
-        "id": "https://feed.eikowagenknecht.com/lootscraper/11048",
-        "source": "Epic Games",
-        "title": "Lonesome Village (Android)",
-        "url": "https://store.epicgames.com/en-US/p/lonesome-village-android-15d165",
-        "published": "2026-11-19T16:35:05.943Z",
-        "note": "son: 2026-11-26 16:00"
       }
     ]
   },

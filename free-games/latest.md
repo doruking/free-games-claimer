@@ -1,15 +1,15 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 25 Kasım 2026 00:53 (İstanbul saati)
+Son kontrol: 26 Kasım 2026 22:44 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
-- [Mark of the Deep](https://store.epicgames.com/tr/p/mark-of-the-deep-f7dc08) — 26 Kasım 2026 19:00 tarihine kadar
+- [Bread and Fred](https://store.epicgames.com/tr/p/bread-and-fred-1db362) — 3 Aralık 2026 19:00 tarihine kadar
+- [Firestone – Idle Clicker Online RPG](https://store.epicgames.com/tr/p/firestone-online-idle-rpg-bfd04b) — 3 Aralık 2026 19:00 tarihine kadar
 
 ## Epic Games Store — sıradaki
 
-- Bread and Fred — 26 Kasım 2026 19:00 tarihinde başlıyor
-- Firestone – Idle Clicker Online RPG — 26 Kasım 2026 19:00 tarihinde başlıyor
+- Strange Antiquities — 3 Aralık 2026 19:00 tarihinde başlıyor
 
 ## Steam — kalıcı ücretsiz (%100 indirim)
 
@@ -21,11 +21,9 @@ Son kontrol: 25 Kasım 2026 00:53 (İstanbul saati)
 
 ## Diğer platformlar (Prime Gaming, Humble, Fab, Epic mobil) — son 7 gün
 
+- Epic Games: [A Tiny Sticker Tale (Android)](https://store.epicgames.com/en-US/p/a-tiny-sticker-tale-android-7c58b7) — son: 2026-12-03 16:00
+- Epic Games: [A Tiny Sticker Tale (iOS)](https://store.epicgames.com/en-US/p/a-tiny-sticker-tale-ios-3aad92) — son: 2026-12-03 16:00
 - Amazon Prime: [Arcadia Fallen](https://luna.amazon.com/claims/arcadia-fallen-aga/dp/amzn1.pg.item.5e2bfe23-c415-4cce-8634-ab6aa1ed76ae?g=s&ingress=amzn&ref_=SM_ArcadiaFallen_S01_FGWP_CRWN) — son: 2026-12-28 00:00
-- Amazon Prime: [CLeM](https://luna.amazon.com/claims/clem-epic/dp/amzn1.pg.item.a5c7d537-4c60-4940-86b8-0d1c13db9163?g=s&ingress=amzn&ref_=SM_CLeM_S01_FGWP_CRWN) — son: 2026-12-23 00:00
-- Amazon Prime: [Werewolf: The Apocalypse: Earthblood](https://luna.amazon.com/claims/werewolf-the-apocalypse-earthblood-epic/dp/amzn1.pg.item.51cac85b-21fe-4e69-b048-3c70dfaf50d3?g=s&ingress=amzn&ref_=SM_WerewolfTheApocalypseEarthblood_S01_FGWP_CRWN) — son: 2026-12-23 00:00
-- Epic Games: [Lonesome Village (iOS)](https://store.epicgames.com/en-US/p/lonesome-village-ios-2a807f) — son: 2026-11-26 16:00
-- Epic Games: [Lonesome Village (Android)](https://store.epicgames.com/en-US/p/lonesome-village-android-15d165) — son: 2026-11-26 16:00
 
 Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
