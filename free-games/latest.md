@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 26 Kasım 2026 22:44 (İstanbul saati)
+Son kontrol: 27 Kasım 2026 22:35 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -29,6 +29,8 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
 ## Diğer çekilişler (Steam anahtarları, Itch.io, IndieGala, Android/iOS...)
 
+- [Mysterious House (IndieGala)](https://www.gamerpower.com/open/mysterious-house-pc-giveaway) — PC, DRM-Free — değeri $0.99
+- [Vertical Drop Heroes HD Steam](https://www.gamerpower.com/open/vertical-drop-heroes-hd-steam-key-giveaway) — PC, Steam — anahtar/kod — değeri $6.99 — son: 2026-11-28 23:59:00
 - [World of Warships: Black Friday](https://www.gamerpower.com/open/world-of-warships-black-friday-giveaway) — PC — DLC — son: 2026-12-04 23:59:00
 - [Kettlebell: Inferno Hotel Afterimage Effect](https://www.gamerpower.com/open/kettlebell-inferno-hotel-afterimage-effect-key-giveaway) — PC — DLC — anahtar/kod
 - [Dead by Daylight 100k Bloodpoints](https://www.gamerpower.com/open/dead-by-daylight-100k-bloodpoints-key-giveaway) — PC — DLC — anahtar/kod — son: 2026-12-31 23:59:59
@@ -38,7 +40,6 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [The Witcher 3: Wild Hunt Remastered - Scarlet Crest Armor](https://www.gamerpower.com/open/the-witcher-3-wild-hunt-remastered-scarlet-crest-armor-giveaway) — PC, Playstation 5, Xbox Series X|S, Nintendo Switch — DLC
 - [Best Plumber (IndieGala)](https://www.gamerpower.com/open/best-plumber-pc-giveaway) — PC, DRM-Free — değeri $29.99
 - [Warframe Igaro Syandana and Ice Colour Picker Pack](https://www.gamerpower.com/open/warframe-igaro-syandana-and-ice-colour-picker-pack-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One, Android, iOS — DLC — anahtar/kod
-- [Sausage Hunter (Indiegala)](https://www.gamerpower.com/open/sausage-hunter-pc-giveaway) — PC, DRM-Free — değeri $29.99
 - [Aniimo Gift Pack](https://www.gamerpower.com/open/aniimo-gift-pack-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Android, iOS — DLC — anahtar/kod — son: 2026-10-30 23:59:00
 - [Battle Ram (IndieGala)](https://www.gamerpower.com/open/battle-ram-pc-giveaway) — PC, DRM-Free — değeri $29.99
 - [Leaper (IndieGala)](https://www.gamerpower.com/open/leaper-pc-giveaway) — PC, DRM-Free — değeri $4.99
@@ -68,7 +69,6 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [The Elder Scrolls Online: Experience Scroll](https://www.gamerpower.com/open/the-elder-scrolls-online-experience-scroll-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
 - [Homeworld 3 Emblem](https://www.gamerpower.com/open/homeworld-3-emblem-key-giveaway) — PC — DLC — anahtar/kod
 - [The Elder Scrolls Online: Pyromancer's Quandary Emote](https://www.gamerpower.com/open/the-elder-scrolls-online-pyromancer-s-quandary-emote-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
-- [Metaball Jersey](https://www.gamerpower.com/open/metaball-jersey-key-giveaway) — PC — DLC — anahtar/kod
 
 Veri: [GamerPower](https://www.gamerpower.com)
 

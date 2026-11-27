@@ -35,10 +35,10 @@
   },
   "lootscraper": {
     "seen": [
+      "https://feed.eikowagenknecht.com/lootscraper/10910",
       "https://feed.eikowagenknecht.com/lootscraper/10943",
       "https://feed.eikowagenknecht.com/lootscraper/10961",
       "https://feed.eikowagenknecht.com/lootscraper/10971",
-      "https://feed.eikowagenknecht.com/lootscraper/10976",
       "https://feed.eikowagenknecht.com/lootscraper/11003",
       "https://feed.eikowagenknecht.com/lootscraper/11004",
       "https://feed.eikowagenknecht.com/lootscraper/11021",
@@ -55,7 +55,6 @@
       "https://feed.eikowagenknecht.com/lootscraper/11050",
       "https://feed.eikowagenknecht.com/lootscraper/11051",
       "https://feed.eikowagenknecht.com/lootscraper/11054",
-      "https://feed.eikowagenknecht.com/lootscraper/11055",
       "https://feed.eikowagenknecht.com/lootscraper/11056",
       "https://feed.eikowagenknecht.com/lootscraper/11057",
       "https://feed.eikowagenknecht.com/lootscraper/11058",
@@ -66,6 +65,9 @@
       "https://feed.eikowagenknecht.com/lootscraper/11063",
       "https://feed.eikowagenknecht.com/lootscraper/11064",
       "https://feed.eikowagenknecht.com/lootscraper/11065",
+      "https://feed.eikowagenknecht.com/lootscraper/11066",
+      "https://feed.eikowagenknecht.com/lootscraper/10976",
+      "https://feed.eikowagenknecht.com/lootscraper/11055",
       "https://feed.eikowagenknecht.com/lootscraper/10987",
       "https://feed.eikowagenknecht.com/lootscraper/10988",
       "https://feed.eikowagenknecht.com/lootscraper/11047",
@@ -186,6 +188,26 @@
   "gamerpower": {
     "items": [
       {
+        "id": "3334",
+        "title": "Mysterious House (IndieGala)",
+        "platforms": "PC, DRM-Free",
+        "type": "Oyun",
+        "key": false,
+        "worth": "$0.99",
+        "endsAt": null,
+        "url": "https://www.gamerpower.com/open/mysterious-house-pc-giveaway"
+      },
+      {
+        "id": "3859",
+        "title": "Vertical Drop Heroes HD Steam",
+        "platforms": "PC, Steam",
+        "type": "Oyun",
+        "key": true,
+        "worth": "$6.99",
+        "endsAt": "2026-11-28 23:59:00",
+        "url": "https://www.gamerpower.com/open/vertical-drop-heroes-hd-steam-key-giveaway"
+      },
+      {
         "id": "3855",
         "title": "World of Warships: Black Friday",
         "platforms": "PC",
@@ -274,16 +296,6 @@
         "worth": null,
         "endsAt": null,
         "url": "https://www.gamerpower.com/open/warframe-igaro-syandana-and-ice-colour-picker-pack-key-giveaway"
-      },
-      {
-        "id": "3322",
-        "title": "Sausage Hunter (Indiegala)",
-        "platforms": "PC, DRM-Free",
-        "type": "Oyun",
-        "key": false,
-        "worth": "$29.99",
-        "endsAt": null,
-        "url": "https://www.gamerpower.com/open/sausage-hunter-pc-giveaway"
       },
       {
         "id": "3783",
