@@ -1,6 +1,6 @@
 # Ücretsiz oyunlar ve içerikler
 
-Son kontrol: 27 Kasım 2026 22:35 (İstanbul saati)
+Son kontrol: 28 Kasım 2026 12:42 (İstanbul saati)
 
 ## Epic Games Store — şu an ücretsiz
 
@@ -29,6 +29,9 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 
 ## Diğer çekilişler (Steam anahtarları, Itch.io, IndieGala, Android/iOS...)
 
+- [Lonely in the Winter (itch.io)](https://www.gamerpower.com/open/lonely-in-the-winter-itch-io-giveaway) — PC, Itch.io, DRM-Free — değeri $2.99 — son: 2026-12-06 23:59:00
+- [Ba Bị (itch.io)](https://www.gamerpower.com/open/n-a) — PC, Itch.io — değeri $4.99 — son: 2026-12-04 23:59:00
+- [Rulebound (itch.io)](https://www.gamerpower.com/open/rulebound-itch-io-giveaway) — PC, Itch.io — değeri $6.99 — son: 2026-12-31 23:59:00
 - [Mysterious House (IndieGala)](https://www.gamerpower.com/open/mysterious-house-pc-giveaway) — PC, DRM-Free — değeri $0.99
 - [Vertical Drop Heroes HD Steam](https://www.gamerpower.com/open/vertical-drop-heroes-hd-steam-key-giveaway) — PC, Steam — anahtar/kod — değeri $6.99 — son: 2026-11-28 23:59:00
 - [World of Warships: Black Friday](https://www.gamerpower.com/open/world-of-warships-black-friday-giveaway) — PC — DLC — son: 2026-12-04 23:59:00
@@ -44,7 +47,9 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [Battle Ram (IndieGala)](https://www.gamerpower.com/open/battle-ram-pc-giveaway) — PC, DRM-Free — değeri $29.99
 - [Leaper (IndieGala)](https://www.gamerpower.com/open/leaper-pc-giveaway) — PC, DRM-Free — değeri $4.99
 - [Reverse: 1999 Bonus Pack](https://www.gamerpower.com/open/reverse-1999-bonus-pack-key-giveaway) — PC, Android, iOS — DLC — anahtar/kod
+- [Boots Quest DX (itch.io)](https://www.gamerpower.com/open/boots-quest-dx-itch-io-giveaway) — PC, Itch.io — değeri $9.99 — son: 2026-11-30 23:59:59
 - [Dwarven Realms (Steam)](https://www.gamerpower.com/open/dwarven-realms-steam-key-giveaway) — PC, Steam — anahtar/kod — değeri $9.99
+- [Tim-Tim 2: The Almighty Gnome (itch.io)](https://www.gamerpower.com/open/tim-tim-2-the-almighty-gnome-itch-io-giveaway) — PC — değeri $3.99 — son: 2026-12-02 23:59:01
 - [Crystal Saga Nova: Free Gift Pack Keys](https://www.gamerpower.com/open/crystal-saga-nova-free-gift-pack-keys) — PC — DLC — son: 2028-01-01 23:59:00
 - [Neverwinter: Cape of the Noble North](https://www.gamerpower.com/open/neverwinter-cape-of-the-noble-north-key-giveaway) — PC — DLC — anahtar/kod
 - [007 First Light: Ops Radiant Outfit](https://www.gamerpower.com/open/007-first-light-ops-radiant-outfit-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Nintendo Switch — DLC — anahtar/kod — son: 2027-05-27 23:59:00
@@ -64,11 +69,6 @@ Kaynak: [LootScraper](https://github.com/eikowagenknecht/lootscraper)
 - [Arena Breakout: Infinite Koen Pack](https://www.gamerpower.com/open/arena-breakout-infinite-koen-pack-key-giveaway) — PC — DLC — anahtar/kod
 - [Sharknado VR (Rift)](https://www.gamerpower.com/open/sharknado-vr-rift-giveaway) — VR — değeri $1.99
 - [Magic: The Gathering Arena Sliver Overlord Sleeve](https://www.gamerpower.com/open/magic-the-gathering-arena-sliver-overlord-sleeve-key-giveaway) — PC — DLC — anahtar/kod
-- [ScreenPlay CCG: Box Office Bundle](https://www.gamerpower.com/open/screenplay-ccg-box-office-bundle-key-giveaway) — PC — DLC — anahtar/kod
-- [World of Tanks - Invite/Bonus Code](https://www.gamerpower.com/open/world-of-tanks-invite-bonus-code-giveaway) — PC — DLC
-- [The Elder Scrolls Online: Experience Scroll](https://www.gamerpower.com/open/the-elder-scrolls-online-experience-scroll-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
-- [Homeworld 3 Emblem](https://www.gamerpower.com/open/homeworld-3-emblem-key-giveaway) — PC — DLC — anahtar/kod
-- [The Elder Scrolls Online: Pyromancer's Quandary Emote](https://www.gamerpower.com/open/the-elder-scrolls-online-pyromancer-s-quandary-emote-key-giveaway) — PC, Playstation 5, Xbox Series X|S, Playstation 4, Xbox One — DLC — anahtar/kod
 
 Veri: [GamerPower](https://www.gamerpower.com)
 
